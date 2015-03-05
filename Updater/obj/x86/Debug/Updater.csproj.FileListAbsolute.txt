@@ -1,0 +1,5 @@
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Debug\Updater.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Debug\Updater.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Debug\Updater.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Debug\Updater.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Debug\Updater.exe.config
