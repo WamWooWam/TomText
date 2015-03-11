@@ -1,6 +1,0 @@
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Release\Updater.exe.config
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Release\Updater.exe
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Release\Updater.pdb
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.csprojResolveAssemblyReference.cache
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.exe
-C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.pdb
