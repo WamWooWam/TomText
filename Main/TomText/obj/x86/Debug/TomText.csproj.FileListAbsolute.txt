@@ -1,0 +1,12 @@
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Debug\TomText.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Debug\TomText.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.Form1.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.Properties.Resources.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Debug\TomText.exe.config
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.AboutBox1.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.Help.resources
+C:\Users\Thomas\Documents\Visual Studio 2010\Projects\TomText\TomText\obj\x86\Debug\TomText.Settings.resources
