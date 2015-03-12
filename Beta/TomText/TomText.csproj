@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1C99191-C4E1-450F-943C-ADEA6C539D94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TomText</RootNamespace>
+    <AssemblyName>TomText</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1424900464_103723.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TTAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TTAbout.Designer.cs">
+      <DependentUpon>TTAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TTAbout.resx">
+      <DependentUpon>TTAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1424900464_103723.ico" />
+    <None Include="Resources\app.config" />
+    <None Include="Resources\font-x-generic1.png" />
+    <None Include="Resources\format-justify-right1.png" />
+    <None Include="Resources\format-justify-left1.png" />
+    <None Include="Resources\format-justify-fill1.png" />
+    <None Include="Resources\format-justify-center1.png" />
+    <None Include="Resources\format-indent-more-rtl.png" />
+    <None Include="Resources\help-browser.png" />
+    <None Include="Resources\dialog-error.png" />
+    <None Include="Resources\accessories-text-editor.png" />
+    <None Include="Resources\software-update-available.png" />
+    <None Include="Resources\help-about.png" />
+    <None Include="Resources\applications-internet.png" />
+    <None Include="Resources\system-help.png" />
+    <None Include="Resources\applications-system.png" />
+    <None Include="Resources\view-refresh.png" />
+    <None Include="Resources\x-office-document.png" />
+    <None Include="Resources\system-software-update.png" />
+    <None Include="Resources\font-x-generic.png" />
+    <None Include="Resources\format-text-bold1.png" />
+    <None Include="Resources\insert-object.png" />
+    <None Include="Resources\document-page-setup.png" />
+    <None Include="Resources\insert-link.png" />
+    <None Include="Resources\insert-image.png" />
+    <None Include="Resources\format-text-underline.png" />
+    <None Include="Resources\format-text-strikethrough.png" />
+    <None Include="Resources\format-text-italic.png" />
+    <None Include="Resources\format-text-bold.png" />
+    <None Include="Resources\format-justify-right.png" />
+    <None Include="Resources\format-justify-left.png" />
+    <None Include="Resources\format-justify-fill.png" />
+    <None Include="Resources\format-justify-center.png" />
+    <None Include="Resources\edit-redo-rtl.png" />
+    <None Include="Resources\edit-redo.png" />
+    <None Include="Resources\edit-paste.png" />
+    <None Include="Resources\edit-find.png" />
+    <None Include="Resources\edit-cut.png" />
+    <None Include="Resources\edit-copy.png" />
+    <None Include="Resources\edit-clear.png" />
+    <None Include="Resources\document-save-as.png" />
+    <None Include="Resources\document-save.png" />
+    <None Include="Resources\document-revert.png" />
+    <None Include="Resources\document-print-preview.png" />
+    <None Include="Resources\document-print.png" />
+    <None Include="Resources\document-open.png" />
+    <None Include="Resources\window-close.png" />
+    <None Include="Resources\document-new.png" />
+    <None Include="bin\Debug\Icons\redo.png" />
+    <None Include="bin\Debug\Icons\print.png" />
+    <None Include="bin\Debug\Icons\print preview.png" />
+    <None Include="bin\Debug\Icons\paste.png" />
+    <None Include="bin\Debug\Icons\page setup.png" />
+    <None Include="bin\Debug\Icons\open.png" />
+    <None Include="bin\Debug\Icons\new.png" />
+    <None Include="bin\Debug\Icons\left.png" />
+    <None Include="bin\Debug\Icons\italic.png" />
+    <None Include="bin\Debug\Icons\find.png" />
+    <None Include="bin\Debug\Icons\fill.png" />
+    <None Include="bin\Debug\Icons\cut.png" />
+    <None Include="bin\Debug\Icons\copy.png" />
+    <None Include="bin\Debug\Icons\close.png" />
+    <None Include="bin\Debug\Icons\clear.png" />
+    <None Include="bin\Debug\Icons\center.png" />
+    <None Include="bin\Debug\Icons\bold.png" />
+    <None Include="bin\Debug\Icons\undo.png" />
+    <None Include="bin\Debug\Icons\underline.png" />
+    <None Include="bin\Debug\Icons\strikethrough.png" />
+    <None Include="bin\Debug\Icons\save.png" />
+    <None Include="bin\Debug\Icons\save as.png" />
+    <None Include="bin\Debug\Icons\right.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

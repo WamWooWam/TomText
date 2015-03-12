@@ -1,0 +1,14 @@
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Release\TomText.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.AboutBox1.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.Form1.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.Properties.Resources.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.pdb
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Release\TomText.exe.config
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\bin\Release\TomText.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.exe
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.Help.resources
+C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Release\TomText.Settings.resources
+C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\bin\Release\TomText.exe.config
+C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\TomText.exe
+C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\TomText.pdb
