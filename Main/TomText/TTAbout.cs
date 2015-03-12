@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TomText
 {
-    partial class AboutBox1 : Form
+    partial class TTAbout : Form
     {
-        public AboutBox1()
+        public TTAbout()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);

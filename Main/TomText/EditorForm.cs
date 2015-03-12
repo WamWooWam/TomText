@@ -15,12 +15,12 @@ using System.Threading;
 
 namespace TomText
 {
-    public partial class Form1 : Form
+    public partial class EditorForm : Form
     {
         bool edited = false;
         string openfile = "Untitled";
         bool fileopened = false;
-        public Form1()
+        public EditorForm()
         {
             InitializeComponent();
             
@@ -35,7 +35,7 @@ namespace TomText
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form about = new AboutBox1();
+            Form about = new TTAbout();
             about.Show();
         }
 
@@ -249,7 +249,7 @@ namespace TomText
 
         private void WindowShown(object sender, EventArgs e)
         {
-            Form1.CheckForIllegalCrossThreadCalls = false;
+            EditorForm.CheckForIllegalCrossThreadCalls = false;
             backgroundWorker1.RunWorkerAsync();
 
         }
