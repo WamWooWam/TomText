@@ -12,3 +12,6 @@ C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\TomText\obj\x86\Re
 C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\bin\Release\TomText.exe.config
 C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\TomText.exe
 C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\TomText.pdb
+C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\bin\Release\TomText.exe.config
+C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.exe
+C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.pdb

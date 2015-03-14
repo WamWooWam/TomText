@@ -18,8 +18,7 @@ namespace TomText
 
         private void Help_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("This is unavalable right now. Please wait for it to be finished OR change your update channel to Alpha");
-            Close();
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

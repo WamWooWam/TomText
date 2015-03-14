@@ -29,6 +29,7 @@ namespace TomText
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = (openfile + " | Tom Text");
+            richTextBox1.Font = Properties.Settings.Default.DefaultFont;
             timer1.Start();
             timer2.Start();
         }

@@ -124,26 +124,22 @@ namespace TomText
 
         private void tabPage1_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("Only the update tab is avalable currently. For preview fetures, Please change your update channel to alpha or beta. Your tab will now be changed.");
-            tabControl1.SelectedTab = tabPage2;
+            
         }
 
         private void tabPage4_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("Only the update tab is avalable currently. For preview fetures, Please change your update channel to alpha or beta. Your tab will now be changed."); 
-            tabControl1.SelectedTab = tabPage2;
+            
         }
 
         private void tabPage5_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("Only the update tab is avalable currently. For preview fetures, Please change your update channel to alpha or beta. Your tab will now be changed.");
-            tabControl1.SelectedTab = tabPage2;
+            
         }
 
         private void tabPage3_Enter(object sender, EventArgs e)
         {
-            MessageBox.Show("Only the update tab is avalable currently. For preview fetures, Please change your update channel to alpha or beta. Your tab will now be changed.");
-            tabControl1.SelectedTab = tabPage2;
+            
         }
     }
 }

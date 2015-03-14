@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1424900464_103723.ico" />
+    <None Include="Resources\TT about.png" />
     <None Include="Resources\app.config" />
     <None Include="Resources\font-x-generic1.png" />
     <None Include="Resources\format-justify-right1.png" />
