@@ -233,26 +233,6 @@ namespace TomText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap font_x_generic {
-            get {
-                object obj = ResourceManager.GetObject("font-x-generic", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap font_x_generic1 {
-            get {
-                object obj = ResourceManager.GetObject("font-x-generic1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap format_justify_center {
             get {
                 object obj = ResourceManager.GetObject("format-justify-center", resourceCulture);
@@ -266,6 +246,16 @@ namespace TomText.Properties {
         internal static System.Drawing.Bitmap format_justify_fill {
             get {
                 object obj = ResourceManager.GetObject("format-justify-fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap format_justify_fill1 {
+            get {
+                object obj = ResourceManager.GetObject("format-justify-fill1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,6 +343,16 @@ namespace TomText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap help_browser1 {
+            get {
+                object obj = ResourceManager.GetObject("help-browser1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insert_image {
             get {
                 object obj = ResourceManager.GetObject("insert_image", resourceCulture);
@@ -383,6 +383,16 @@ namespace TomText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading {
+            get {
+                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newdoc {
             get {
                 object obj = ResourceManager.GetObject("newdoc", resourceCulture);
@@ -396,6 +406,26 @@ namespace TomText.Properties {
         internal static System.Drawing.Bitmap opendoc {
             get {
                 object obj = ResourceManager.GetObject("opendoc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preferences_desktop_font {
+            get {
+                object obj = ResourceManager.GetObject("preferences-desktop-font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap preferences_system {
+            get {
+                object obj = ResourceManager.GetObject("preferences-system", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +463,19 @@ namespace TomText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TT_about {
+        internal static System.Drawing.Bitmap system_software_update1 {
             get {
-                object obj = ResourceManager.GetObject("TT about", resourceCulture);
+                object obj = ResourceManager.GetObject("system-software-update1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TTAboutImage {
+            get {
+                object obj = ResourceManager.GetObject("TTAboutImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
