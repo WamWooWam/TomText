@@ -15,6 +15,3 @@ C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\To
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\bin\Release\TomText.exe.config
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.exe
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.pdb
-C:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Release\TomText.exe.config
-C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.exe
-C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.pdb

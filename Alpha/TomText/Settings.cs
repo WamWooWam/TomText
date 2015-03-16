@@ -68,7 +68,6 @@ namespace TomText
             {
                 radioButton3.Checked = true;
             }
-            fontText.Text = Properties.Settings.Default.DefaultFont.OriginalFontName + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() +"pt";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -141,18 +140,6 @@ namespace TomText
         private void tabPage3_Enter(object sender, EventArgs e)
         {
             
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FontDialog font = new FontDialog();
-            font.Font = Properties.Settings.Default.DefaultFont;
-            font.ShowApply = false;
-            if (font.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                Properties.Settings.Default.DefaultFont = font.Font;
-                Properties.Settings.Default.Save();
-            }
         }
     }
 }
