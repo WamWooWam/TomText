@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading;
+using System.Drawing.Text;
 
 namespace TomText
 {
@@ -20,18 +21,30 @@ namespace TomText
         bool edited = false;
         string openfile = "Untitled";
         bool fileopened = false;
+        string prevtext;
         public EditorForm()
         {
             InitializeComponent();
-            
+            foreach (FontFamily fontFamily in FontFamily.Families)
+            {
+                if (fontFamily.IsStyleAvailable(FontStyle.Regular))
+                {
+                    toolStripComboBox1.Items.Add(fontFamily.Name);
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Text = (openfile + " | Tom Text");
             richTextBox1.Font = Properties.Settings.Default.DefaultFont;
-            timer1.Start();
-            timer2.Start();
+            richTextBox1.ForeColor = Properties.Settings.Default.DefaultFontColour;
+            toolStripComboBox2.Text = Properties.Settings.Default.DefaultFont.SizeInPoints.ToString();
+            toolStripComboBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name;
+            EditorForm.CheckForIllegalCrossThreadCalls = false;
+            updateCheckerWorker.RunWorkerAsync();
+            guiModifier.Start();
+            autosaveTimer.Start();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,6 +148,28 @@ namespace TomText
             toolStripButton19.Enabled = richTextBox1.CanRedo;
             toolStripMenuItem1.Enabled = richTextBox1.CanUndo;
             toolStripMenuItem2.Enabled = richTextBox1.CanRedo;
+            undoStripMenuItem.Enabled = richTextBox1.CanUndo;
+            redoStripMenuItem.Enabled = richTextBox1.CanRedo;
+            if(richTextBox1.SelectionAlignment == HorizontalAlignment.Left)
+            {
+                toolStripButton14.Checked = true;
+                toolStripButton15.Checked = false;
+                toolStripButton16.Checked = false;
+            }
+            if (richTextBox1.SelectionAlignment == HorizontalAlignment.Center)
+            {
+                toolStripButton14.Checked = false;
+                toolStripButton15.Checked = true;
+                toolStripButton16.Checked = false;
+ 
+            }
+            if (richTextBox1.SelectionAlignment == HorizontalAlignment.Right)
+            {
+                toolStripButton14.Checked = false;
+                toolStripButton15.Checked = false;
+                toolStripButton16.Checked = true;
+            }
+            toolStripButton17.Checked = richTextBox1.WordWrap;
         }
 
         private void Close(object sender, EventArgs e)
@@ -142,7 +177,7 @@ namespace TomText
             Close();
         }
 
-        private void Font(object sender, EventArgs e)
+        private void ChangeFont(object sender, EventArgs e)
         {
             FontDialog font = new FontDialog();
             font.Font = richTextBox1.SelectionFont;
@@ -157,48 +192,49 @@ namespace TomText
 
         private void CheckForUpdates(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = "Checking for Updates";
-            toolStripStatusLabel1.Image = Properties.Resources.system_software_update;
+            statusLabel.Text = "Checking for Updates";
+            statusLabel.Image = Properties.Resources.loading;
             WebClient client = new WebClient();
             try
             {
                 client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel), @"ltstver");
-                string ver = File.ReadAllText(@"ltstver");
+				string ver = File.ReadAllText(@"ltstver");
                 if (ver == String.Format("{0}", AssemblyVersion))
                 {
                     Properties.Settings.Default.UpdateOnExit = false;
                     Properties.Settings.Default.Save();
-                    toolStripStatusLabel1.Text = "No updates avalable!";
+                    statusLabel.Text = "No updates avalable!";
+                    statusLabel.Image = Properties.Resources.system_software_update;
                     Thread.Sleep(1000);
-                    toolStripStatusLabel1.Text = "Idle";
-                    toolStripStatusLabel1.Image = Properties.Resources.accessories_text_editor;
+                    statusLabel.Text = "Idle";
+                    statusLabel.Image = Properties.Resources.accessories_text_editor;
                 }
                 else
                 {
                         
-                        toolStripStatusLabel1.Text = "Update Avalable!";
-                        toolStripStatusLabel1.Image = Properties.Resources.software_update_available;
+                        statusLabel.Text = "Update Avalable!";
+                        statusLabel.Image = Properties.Resources.software_update_available;
                         if (MessageBox.Show("An update is avalable, you have version " + String.Format("{0}", AssemblyVersion) + " and the server has version " + ver + ". Do you want to install on the next launch?", "Update Avalable!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
 
                             Properties.Settings.Default.UpdateOnExit = true;
                             Properties.Settings.Default.Save();
-                            toolStripStatusLabel1.Text = "Downloading update...";
-                            toolStripStatusLabel1.Image = Properties.Resources.document_save;
+                            statusLabel.Text = "Downloading update...";
+                            statusLabel.Image = Properties.Resources.loading;
                             try
                             {
                                 client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"), @"update.exe");
                             }
                             catch
                             {
-                                toolStripStatusLabel1.Text = "Download error";
-                                toolStripStatusLabel1.Image = Properties.Resources.dialog_error;
+                                statusLabel.Text = "Download error";
+                                statusLabel.Image = Properties.Resources.dialog_error;
                                 if (MessageBox.Show("An error has occurred downloading the update file, do you want to Abort, Retry or Ignore?", "Update download failed.", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information) == DialogResult.Retry)
                                 {
                                     try
                                     {
-                                        toolStripStatusLabel1.Text = "Downloading update...";
-                                        toolStripStatusLabel1.Image = Properties.Resources.document_save;
+                                        statusLabel.Text = "Downloading update...";
+                                        statusLabel.Image = Properties.Resources.loading;
                                         client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"), @"update.exe");
                                     }
                                     catch
@@ -214,8 +250,8 @@ namespace TomText
                                     Properties.Settings.Default.Save();
                                 }
                             }
-                            toolStripStatusLabel1.Text = "Idle";
-                            toolStripStatusLabel1.Image = Properties.Resources.accessories_text_editor;
+                            statusLabel.Text = "Idle";
+                            statusLabel.Image = Properties.Resources.accessories_text_editor;
                         }
                         else
                         {
@@ -227,8 +263,8 @@ namespace TomText
                 }
             catch 
             {
-                toolStripStatusLabel1.Text = "Idle";
-                toolStripStatusLabel1.Image = Properties.Resources.accessories_text_editor;
+                statusLabel.Text = "Idle";
+                statusLabel.Image = Properties.Resources.accessories_text_editor;
                 MessageBox.Show("It appears that you are offline and cannot check for updates or some other error has occurred, Please try again later", "INTERNET, Y U NO WORK?!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Properties.Settings.Default.UpdateOnExit = false;
                 Properties.Settings.Default.Save();
@@ -250,9 +286,7 @@ namespace TomText
 
         private void WindowShown(object sender, EventArgs e)
         {
-            EditorForm.CheckForIllegalCrossThreadCalls = false;
-            backgroundWorker1.RunWorkerAsync();
-
+            
         }
         public string AssemblyVersion
         {
@@ -264,8 +298,8 @@ namespace TomText
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = "Autosaving...";
-            toolStripStatusLabel1.Image = Properties.Resources.document_save;
+            statusLabel.Text = "Autosaving...";
+            statusLabel.Image = Properties.Resources.document_save;
             if (openfile == "Untitled")
             {
                 File.Delete(@"autosaved.ttd");
@@ -275,8 +309,8 @@ namespace TomText
             {
                 richTextBox1.SaveFile(openfile);
             }
-            toolStripStatusLabel1.Text = "Idle";
-            toolStripStatusLabel1.Image = Properties.Resources.accessories_text_editor;
+            statusLabel.Text = "Idle";
+            statusLabel.Image = Properties.Resources.accessories_text_editor;
         }
 
         private void helpTopicsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -291,16 +325,62 @@ namespace TomText
             settings.Show();
         }
 
-        private void fIleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkNow(object sender, EventArgs e)
         {
-
+            updateCheckerWorker.RunWorkerAsync();
         }
 
-        private void psteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripButton14_Click(object sender, EventArgs e)
         {
-
+            if(toolStripButton14.Checked == true)
+            {
+                toolStripButton15.Checked = false;
+                toolStripButton16.Checked = false;
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+            }
         }
+
+        private void toolStripButton15_Click(object sender, EventArgs e)
+        {
+            if (toolStripButton15.Checked == true)
+            {
+                toolStripButton14.Checked = false;
+                toolStripButton16.Checked = false;
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+            }
+        }
+
+        private void toolStripButton16_Click(object sender, EventArgs e)
+        {
+            if (toolStripButton16.Checked == true)
+            {
+                toolStripButton15.Checked = false;
+                toolStripButton14.Checked = false;
+                richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+            }
+        }
+
+        private void toolStripButton17_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.WordWrap == true)
+            {
+                richTextBox1.WordWrap = false;
+            }
+            else
+            {
+                richTextBox1.WordWrap = true;
+            }
+        }
+
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectAll();
+        }
+
+        private void toolStripComboBox1_TextUpdate(object sender, EventArgs e)
+        {
+            
+        }
+    
     }
 }
-
-

@@ -1,22 +1,32 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TomText", "TomText\TomText.csproj", "{E1C99191-C4E1-450F-943C-ADEA6C539D94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Debug|x86.ActiveCfg = Debug|x86
 		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Debug|x86.Build.0 = Debug|x86
+		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Release|x86.ActiveCfg = Release|x86
 		{E1C99191-C4E1-450F-943C-ADEA6C539D94}.Release|x86.Build.0 = Release|x86
+		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Debug|x86.ActiveCfg = Debug|x86
 		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Debug|x86.Build.0 = Debug|x86
+		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Release|Any CPU.ActiveCfg = Release|x86
 		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Release|x86.ActiveCfg = Release|x86
 		{20E5249D-3E91-4E51-BEDC-040F0CB82F0B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

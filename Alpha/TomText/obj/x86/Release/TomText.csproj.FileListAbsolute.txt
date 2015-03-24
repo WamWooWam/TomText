@@ -15,3 +15,15 @@ C:\Users\Thomas\Documents\GitHub\TomText\TomText\Main\TomText\obj\x86\Release\To
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\bin\Release\TomText.exe.config
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.exe
 C:\Users\Thomas\Downloads\TomText-master\TomText-master\Alpha\TomText\obj\x86\Release\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Release\TomText.exe.config
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Release\TomText.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Release\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.TTAbout.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.EditorForm.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.Help.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.Properties.Resources.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.Settings.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Release\TomText.csproj.GenerateResource.Cache

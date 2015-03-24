@@ -4,3 +4,12 @@ C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Releas
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.csprojResolveAssemblyReference.cache
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.exe
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Release\Updater.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.InstallingProgress.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.Properties.Resources.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.csproj.GenerateResource.Cache
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe.config
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.pdb
