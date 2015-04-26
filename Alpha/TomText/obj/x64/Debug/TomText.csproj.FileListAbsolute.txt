@@ -1,0 +1,14 @@
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\x64\Debug\TomText.exe.config
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\x64\Debug\TomText.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\x64\Debug\TomText.pdb
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\x64\Debug\ConsoleControl.dll
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\x64\Debug\ConsoleControlAPI.dll
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.DebugTools.DebugConsole.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.TTAbout.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.EditorForm.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.Help.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.Properties.Resources.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.Settings.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.csproj.GenerateResource.Cache
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x64\Debug\TomText.pdb
