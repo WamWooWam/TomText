@@ -28,48 +28,35 @@ namespace TomText
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.Checked == true)
-            {
 
-            }
-            else
-            {
-                if (
-                MessageBox.Show("This option will DISABLE update checking ENTIRELY! This means you will NOT receve updates! If a security patch is releaced YOU WILL NOT RECIEVE IT", 
-                "WARNING", 
-                MessageBoxButtons.OKCancel, 
-                MessageBoxIcon.Warning, 
-                MessageBoxDefaultButton.Button2) ==
-                System.Windows.Forms.DialogResult.Cancel)
-                {
-                    checkBox3.Checked = true;
-                }
-            }
         }
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("This section is NOT FINISHED and DOES NOT WORK, this is for preview purposes only", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show("This section is NOT FINISHED", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             comboBox3.Text = Languages[Properties.Settings.Default.Language];
             comboBox4.Text = Icons[Properties.Settings.Default.IconStyle];
             comboBox1.Text = Languages[Properties.Settings.Default.SpellCheckLanguage];
-            checkBox1.Checked = Properties.Settings.Default.SpellCheckEnabled;
-            checkBox2.Checked = Properties.Settings.Default.DuringType;
-            checkBox3.Checked = Properties.Settings.Default.CheckForUpdates;
-            textBox1.Text = Properties.Settings.Default.DefaultFont.OriginalFontName + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
-            textBox2.Font = Properties.Settings.Default.DefaultFont;
+            textBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
             textBox2.ForeColor = Properties.Settings.Default.DefaultFontColour;
+            //Sets update channel radio buttons
             if (Properties.Settings.Default.UpdateChannel == "main")
             {
                 radioButton1.Checked = true;
             }
-            if (Properties.Settings.Default.UpdateChannel == "beta")
+            else
             {
-                radioButton2.Checked = true;
-            }
-            if (Properties.Settings.Default.UpdateChannel == "alpha")
-            {
-                radioButton3.Checked = true;
+                if (Properties.Settings.Default.UpdateChannel == "beta")
+                {
+                    radioButton2.Checked = true;
+                }
+                else
+                {
+                    if (Properties.Settings.Default.UpdateChannel == "alpha")
+                    {
+                        radioButton3.Checked = true;
+                    }
+                }
             }
             if(Properties.Settings.Default.showMessagesInStatusBar == true)
             {
@@ -157,6 +144,7 @@ namespace TomText
         {
             FontDialog font = new FontDialog();
             font.Font = Properties.Settings.Default.DefaultFont;
+            font.Font = Properties.Settings.Default.DefaultFont;
             font.Color = Properties.Settings.Default.DefaultFontColour;
             font.ShowColor = true;
             font.ShowEffects = true;
@@ -165,7 +153,8 @@ namespace TomText
                 Properties.Settings.Default.DefaultFont = font.Font;
                 Properties.Settings.Default.DefaultFontColour = font.Color;
                 Properties.Settings.Default.Save();
-                textBox1.Text = Properties.Settings.Default.DefaultFont.OriginalFontName + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
+                textBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
+                textBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
                 textBox2.Font = Properties.Settings.Default.DefaultFont;
                 textBox2.ForeColor = Properties.Settings.Default.DefaultFontColour;
             }
@@ -182,6 +171,21 @@ namespace TomText
                 form1.Close();
                 this.Close();
             }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.showMessagesInStatusBar = false;
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.showMessagesInStatusBar = true;
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

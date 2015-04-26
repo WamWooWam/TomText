@@ -47,5 +47,11 @@
     <Setting Name="updateRetrys" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
+    <Setting Name="themeIsDark" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="enableDebugConsole" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

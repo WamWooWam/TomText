@@ -201,5 +201,29 @@ namespace TomText.Properties {
                 this["updateRetrys"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool themeIsDark {
+            get {
+                return ((bool)(this["themeIsDark"]));
+            }
+            set {
+                this["themeIsDark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enableDebugConsole {
+            get {
+                return ((bool)(this["enableDebugConsole"]));
+            }
+            set {
+                this["enableDebugConsole"] = value;
+            }
+        }
     }
 }

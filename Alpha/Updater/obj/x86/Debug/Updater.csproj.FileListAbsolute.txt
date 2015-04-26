@@ -3,3 +3,21 @@ C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Debug\
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Debug\Updater.exe
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\obj\x86\Debug\Updater.pdb
 C:\Users\Thomas\documents\visual studio 2010\Projects\TomText\Updater\bin\Debug\Updater.exe.config
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.exe.config
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.pdb
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.Form1.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.Properties.Resources.resources
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.csproj.GenerateResource.Cache
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.exe
+C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.pdb
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.exe.config
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Debug\Updater.pdb
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.csprojResolveAssemblyReference.cache
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.Form1.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.Properties.Resources.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.csproj.GenerateResource.Cache
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Debug\Updater.pdb

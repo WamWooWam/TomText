@@ -13,7 +13,8 @@ namespace Updater
         static void Main(string[] args)
         {
             Thread.Sleep(100);
-            Process.Start(@"update.exe", "-l -y -sd1");
+            Form form = new Form1();
+            Application.Run(form);
         }
     }
 }

@@ -2,5 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ReferencePath>C:\Users\Thomas\Desktop\images\gnome-icon-theme-3.0.0\gnome\24x24\actions\</ReferencePath>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

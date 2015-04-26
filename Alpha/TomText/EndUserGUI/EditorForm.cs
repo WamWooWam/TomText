@@ -25,23 +25,26 @@ namespace TomText
         public EditorForm()
         {
             InitializeComponent();
+            Console.WriteLine("");
+            Console.WriteLine("Generating Font List");
             foreach (FontFamily fontFamily in FontFamily.Families)
             {
                 if (fontFamily.IsStyleAvailable(FontStyle.Regular))
                 {
                     toolStripComboBox1.Items.Add(fontFamily.Name);
+                    Console.WriteLine("Added font: " + fontFamily.Name);
                 }
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             this.Text = (openfile + " | Tom Text");
             richTextBox1.Font = Properties.Settings.Default.DefaultFont;
             richTextBox1.ForeColor = Properties.Settings.Default.DefaultFontColour;
             toolStripComboBox2.Text = Properties.Settings.Default.DefaultFont.SizeInPoints.ToString();
             toolStripComboBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name;
             EditorForm.CheckForIllegalCrossThreadCalls = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
             updateCheckerWorker.RunWorkerAsync();
             guiModifier.Start();
             autosaveTimer.Start();
@@ -192,17 +195,21 @@ namespace TomText
 
         private void CheckForUpdates(object sender, EventArgs e)
         {
+            Console.WriteLine("");
+            Console.WriteLine("Update Check Started");
             statusLabel.Text = "Checking for Updates";
             statusLabel.Image = Properties.Resources.loading;
             WebClient client = new WebClient();
             try
             {
+                Console.WriteLine("Begin version download - " + "http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel);
                 client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel), @"ltstver");
 				string ver = File.ReadAllText(@"ltstver");
-                if (ver == String.Format("{0}", AssemblyVersion))
+                if (ver == AssemblyVersion)
                 {
                     Properties.Settings.Default.UpdateOnExit = false;
                     Properties.Settings.Default.Save();
+                    Console.WriteLine("No update avalable");
                     statusLabel.Text = "No updates avalable!";
                     statusLabel.Image = Properties.Resources.system_software_update;
                     Thread.Sleep(1000);
@@ -211,7 +218,7 @@ namespace TomText
                 }
                 else
                 {
-                        
+                        Console.WriteLine("Update avalable");
                         statusLabel.Text = "Update Avalable!";
                         statusLabel.Image = Properties.Resources.software_update_available;
                         if (MessageBox.Show("An update is avalable, you have version " + String.Format("{0}", AssemblyVersion) + " and the server has version " + ver + ". Do you want to install on the next launch?", "Update Avalable!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
@@ -219,26 +226,31 @@ namespace TomText
 
                             Properties.Settings.Default.UpdateOnExit = true;
                             Properties.Settings.Default.Save();
+                            Console.WriteLine("Update download started");
                             statusLabel.Text = "Downloading update...";
                             statusLabel.Image = Properties.Resources.loading;
                             try
                             {
+                                Console.WriteLine("Update download started - " + String.Format("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"));
                                 client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"), @"update.exe");
                             }
                             catch
                             {
+                                Console.WriteLine("Download Error");
                                 statusLabel.Text = "Download error";
                                 statusLabel.Image = Properties.Resources.dialog_error;
                                 if (MessageBox.Show("An error has occurred downloading the update file, do you want to Abort, Retry or Ignore?", "Update download failed.", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information) == DialogResult.Retry)
                                 {
                                     try
                                     {
+                                        Console.WriteLine("Update download started - " + String.Format("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"));
                                         statusLabel.Text = "Downloading update...";
                                         statusLabel.Image = Properties.Resources.loading;
                                         client.DownloadFile(new Uri("http://wamwoowam.tk/TomText/" + Properties.Settings.Default.UpdateChannel + ".exe"), @"update.exe");
                                     }
                                     catch
                                     {
+                                        Console.WriteLine("Update download failed");
                                         MessageBox.Show("The update download has failed, please relaunch or go to 'Tools > Updates > Check Now' to re-attempt.", "Update failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         Properties.Settings.Default.UpdateOnExit = false;
                                         Properties.Settings.Default.Save();
@@ -250,6 +262,7 @@ namespace TomText
                                     Properties.Settings.Default.Save();
                                 }
                             }
+
                             statusLabel.Text = "Idle";
                             statusLabel.Image = Properties.Resources.accessories_text_editor;
                         }
@@ -257,6 +270,7 @@ namespace TomText
                         {
                             Properties.Settings.Default.UpdateOnExit = false;
                             Properties.Settings.Default.Save();
+                            Console.WriteLine("Update refused");
                         }
                     }
                    
@@ -265,10 +279,12 @@ namespace TomText
             {
                 statusLabel.Text = "Idle";
                 statusLabel.Image = Properties.Resources.accessories_text_editor;
+                Console.WriteLine("Offline error");
                 MessageBox.Show("It appears that you are offline and cannot check for updates or some other error has occurred, Please try again later", "INTERNET, Y U NO WORK?!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Properties.Settings.Default.UpdateOnExit = false;
                 Properties.Settings.Default.Save();
             }
+            
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -298,6 +314,7 @@ namespace TomText
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine("Autosaving...");
             statusLabel.Text = "Autosaving...";
             statusLabel.Image = Properties.Resources.document_save;
             if (openfile == "Untitled")
@@ -309,6 +326,7 @@ namespace TomText
             {
                 richTextBox1.SaveFile(openfile);
             }
+            Console.WriteLine("Saved");
             statusLabel.Text = "Idle";
             statusLabel.Image = Properties.Resources.accessories_text_editor;
         }
@@ -380,6 +398,16 @@ namespace TomText
         private void toolStripComboBox1_TextUpdate(object sender, EventArgs e)
         {
             
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripComboBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     
     }

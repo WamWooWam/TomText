@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Official", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Other", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("http://wamwoowam.tk/TomText/");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -38,7 +42,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -59,29 +67,32 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox6);
             this.tabPage5.ImageKey = "applications-graphics.png";
             this.tabPage5.Location = new System.Drawing.Point(4, 23);
             this.tabPage5.Name = "tabPage5";
@@ -92,6 +103,15 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             this.tabPage5.Enter += new System.EventHandler(this.tabPage5_Enter);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Location = new System.Drawing.Point(8, 6);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(374, 100);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Main Theme";
             // 
             // tabPage4
             // 
@@ -123,7 +143,8 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "DefaultFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBox2.Font = global::TomText.Properties.Settings.Default.DefaultFont;
             this.textBox2.Location = new System.Drawing.Point(6, 39);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -164,6 +185,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox7);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.ImageKey = "system-software-update.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
@@ -173,6 +195,36 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Updates";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.listView1);
+            this.groupBox7.Location = new System.Drawing.Point(8, 127);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(374, 100);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Update Repositories";
+            // 
+            // listView1
+            // 
+            listViewGroup5.Header = "Official";
+            listViewGroup5.Name = "Official";
+            listViewGroup6.Header = "Other";
+            listViewGroup6.Name = "listViewGroup1";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup5,
+            listViewGroup6});
+            listViewItem3.Group = listViewGroup5;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem3});
+            this.listView1.Location = new System.Drawing.Point(7, 20);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(361, 74);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -186,10 +238,26 @@
             this.groupBox3.Controls.Add(this.checkBox3);
             this.groupBox3.Location = new System.Drawing.Point(8, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(374, 135);
+            this.groupBox3.Size = new System.Drawing.Size(374, 115);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Checking for Updates";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(127, 79);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
+            this.numericUpDown1.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Amount of times to retry";
             // 
             // radioButton3
             // 
@@ -254,13 +322,15 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = global::TomText.Properties.Settings.Default.CheckForUpdates;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TomText.Properties.Settings.Default, "CheckForUpdates", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBox3.Location = new System.Drawing.Point(7, 20);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(113, 17);
             this.checkBox3.TabIndex = 0;
             this.checkBox3.Text = "Check for updates";
             this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // tabPage1
             // 
@@ -369,6 +439,9 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = global::TomText.Properties.Settings.Default.DuringType;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TomText.Properties.Settings.Default, "DuringType", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBox2.Location = new System.Drawing.Point(10, 42);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(166, 17);
@@ -403,6 +476,9 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::TomText.Properties.Settings.Default.SpellCheckEnabled;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TomText.Properties.Settings.Default, "SpellCheckEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBox1.Location = new System.Drawing.Point(10, 19);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(119, 17);
@@ -427,6 +503,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.checkBox4);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.ImageKey = "preferences-other.png";
@@ -439,6 +516,63 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = global::TomText.Properties.Settings.Default.enableDebugConsole;
+            this.checkBox4.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TomText.Properties.Settings.Default, "enableDebugConsole", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox4.Location = new System.Drawing.Point(8, 369);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(165, 17);
+            this.checkBox4.TabIndex = 2;
+            this.checkBox4.Text = "Show debug console window";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.radioButton5);
+            this.groupBox5.Controls.Add(this.radioButton4);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Location = new System.Drawing.Point(8, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(374, 100);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Messages";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(108, 43);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(155, 17);
+            this.radioButton5.TabIndex = 2;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Status label in main window";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(108, 19);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(135, 17);
+            this.radioButton4.TabIndex = 1;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Individual message box";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Show messages in";
             // 
             // button2
             // 
@@ -461,65 +595,6 @@
             this.imageList1.Images.SetKeyName(4, "preferences-other.png");
             this.imageList1.Images.SetKeyName(5, "applications-graphics.png");
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.radioButton5);
-            this.groupBox5.Controls.Add(this.radioButton4);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Location = new System.Drawing.Point(8, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(374, 100);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Messages";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Show messages in";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(108, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(135, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Individual message box";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(108, 43);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(155, 17);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Status label in main window";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 81);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Amount of times to retry";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(127, 79);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
-            this.numericUpDown1.TabIndex = 7;
-            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,12 +609,15 @@
             this.Text = "Settings";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Settings_FormClosed);
             this.Load += new System.EventHandler(this.Settings_Load);
+            this.tabPage5.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -547,9 +625,9 @@
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,5 +671,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

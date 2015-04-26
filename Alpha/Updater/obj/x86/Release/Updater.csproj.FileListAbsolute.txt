@@ -13,3 +13,12 @@ C:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.pdb
 C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe.config
 C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe
 C:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.pdb
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe.config
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\bin\Release\Updater.pdb
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.csprojResolveAssemblyReference.cache
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.Form1.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.Properties.Resources.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.csproj.GenerateResource.Cache
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.exe
+E:\Users\Thomas\Desktop\TomText\Alpha\Updater\obj\x86\Release\Updater.pdb
