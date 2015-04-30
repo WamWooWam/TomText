@@ -13,11 +13,15 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Threading;
 using System.Drawing.Text;
+using System.Runtime.InteropServices;
+using NHunspell;
+using NHunspellExtender;
 
 namespace TomText
 {
     public partial class EditorForm : Form
     {
+
         bool edited = false;
         string openfile = "Untitled";
         bool fileopened = false;
@@ -26,14 +30,9 @@ namespace TomText
         {
             InitializeComponent();
             Console.WriteLine("");
-            Console.WriteLine("Generating Font List");
-            foreach (FontFamily fontFamily in FontFamily.Families)
+            foreach (String font in Properties.Settings.Default.generatedListOfFonts)
             {
-                if (fontFamily.IsStyleAvailable(FontStyle.Regular))
-                {
-                    toolStripComboBox1.Items.Add(fontFamily.Name);
-                    Console.WriteLine("Added font: " + fontFamily.Name);
-                }
+                toolStripComboBox1.Items.Add(font);
             }
             this.Text = (openfile + " | Tom Text");
             richTextBox1.Font = Properties.Settings.Default.DefaultFont;
@@ -41,6 +40,7 @@ namespace TomText
             toolStripComboBox2.Text = Properties.Settings.Default.DefaultFont.SizeInPoints.ToString();
             toolStripComboBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name;
             EditorForm.CheckForIllegalCrossThreadCalls = false;
+            nHunspellTextBoxExtender1.SetSpellCheckEnabled(richTextBox1, Enabled);
         }
 
         private void Form1_Load(object sender, EventArgs e)

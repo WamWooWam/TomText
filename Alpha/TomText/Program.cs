@@ -48,14 +48,14 @@ namespace TomText
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Properties.Settings.Default.enableDebugConsole == false)
+            if (Properties.Settings.Default.FirstStartup == true)
             {
-                Application.Run(new EditorForm());
+                Application.Run(new EndUserGUI.FirstRun());
             }
             else
             {
-                Application.Run(new DebugTools.DebugConsole());
-            }
+                Application.Run(new EditorForm());
+            }           
             
         }
     }

@@ -37,3 +37,4 @@ E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Debug\TomText.Help.resourc
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Debug\TomText.Properties.Resources.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Debug\TomText.Settings.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Debug\TomText.csproj.GenerateResource.Cache
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\x86\Debug\TomText.EndUserGUI.FirstRun.resources

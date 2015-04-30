@@ -124,6 +124,7 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.nHunspellTextBoxExtender1 = new NHunspellExtender.NHunspellTextBoxExtender();
             this.richTextBoxContextMenu.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -134,6 +135,7 @@
             this.toolStripContainer1.RightToolStripPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nHunspellTextBoxExtender1)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBoxContextMenu
@@ -228,16 +230,18 @@
             // statusStrip
             // 
             this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 0);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(834, 22);
+            this.statusStrip.Size = new System.Drawing.Size(784, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip1";
             // 
             // statusLabel
             // 
+            this.statusLabel.Font = global::TomText.Properties.Settings.Default.UIFont;
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(26, 17);
             this.statusLabel.Text = "Idle";
@@ -252,7 +256,9 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Font = global::TomText.Properties.Settings.Default.UIFont;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1,
             this.toolStripComboBox2,
@@ -268,6 +274,7 @@
             this.toolStripButton17});
             this.toolStrip1.Location = new System.Drawing.Point(3, 24);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(397, 25);
             this.toolStrip1.TabIndex = 1;
             // 
@@ -407,7 +414,12 @@
             // 
             this.menuStrip.AutoSize = false;
             this.menuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.menuStrip.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::TomText.Properties.Settings.Default, "UIFontColour", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip.Font = global::TomText.Properties.Settings.Default.UIFont;
+            this.menuStrip.ForeColor = global::TomText.Properties.Settings.Default.UIFontColour;
+            this.menuStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -416,7 +428,8 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(834, 24);
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip.Size = new System.Drawing.Size(784, 24);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -678,7 +691,7 @@
             this.seperateToolStripMenuItem5,
             this.settingsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // updatesToolStripMenuItem
@@ -734,7 +747,7 @@
             // 
             this.helpTopicsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("helpTopicsToolStripMenuItem.Image")));
             this.helpTopicsToolStripMenuItem.Name = "helpTopicsToolStripMenuItem";
-            this.helpTopicsToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.helpTopicsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.helpTopicsToolStripMenuItem.Text = "Help Topics";
             this.helpTopicsToolStripMenuItem.Click += new System.EventHandler(this.helpTopicsToolStripMenuItem_Click);
             // 
@@ -742,13 +755,13 @@
             // 
             this.websiteToolStripMenuItem.Image = global::TomText.Properties.Resources.emblem_web;
             this.websiteToolStripMenuItem.Name = "websiteToolStripMenuItem";
-            this.websiteToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.websiteToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.websiteToolStripMenuItem.Text = "Website";
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(134, 6);
             // 
             // aboutToolStripMenuItem
             // 
@@ -756,7 +769,7 @@
             this.licencesToolStripMenuItem});
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -795,6 +808,7 @@
             this.toolStripButton9});
             this.fileToolStrip.Location = new System.Drawing.Point(0, 3);
             this.fileToolStrip.Name = "fileToolStrip";
+            this.fileToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.fileToolStrip.Size = new System.Drawing.Size(24, 288);
             this.fileToolStrip.TabIndex = 0;
             this.fileToolStrip.Text = "toolStrip1";
@@ -947,7 +961,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(810, 565);
+            this.richTextBox1.Size = new System.Drawing.Size(760, 491);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -962,7 +976,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.richTextBox1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(810, 565);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(760, 491);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -970,7 +984,7 @@
             // toolStripContainer1.RightToolStripPanel
             // 
             this.toolStripContainer1.RightToolStripPanel.Controls.Add(this.fileToolStrip);
-            this.toolStripContainer1.Size = new System.Drawing.Size(834, 636);
+            this.toolStripContainer1.Size = new System.Drawing.Size(784, 562);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -978,13 +992,25 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // nHunspellTextBoxExtender1
+            // 
+            this.nHunspellTextBoxExtender1.Language = "English";
+            this.nHunspellTextBoxExtender1.MaintainUserChoice = true;
+            this.nHunspellTextBoxExtender1.ShortcutKey = System.Windows.Forms.Shortcut.F7;
+            this.nHunspellTextBoxExtender1.SpellAsYouType = true;
             // 
             // EditorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 636);
+            this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.toolStripContainer1);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::TomText.Properties.Settings.Default, "UIFontColour", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.Font = global::TomText.Properties.Settings.Default.UIFont;
+            this.ForeColor = global::TomText.Properties.Settings.Default.UIFontColour;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditorForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -1009,6 +1035,7 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nHunspellTextBoxExtender1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1109,6 +1136,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton15;
         private System.Windows.Forms.ToolStripButton toolStripButton16;
         private System.Windows.Forms.ToolStripButton toolStripButton17;
+        private NHunspellExtender.NHunspellTextBoxExtender nHunspellTextBoxExtender1;
     }
 }
 

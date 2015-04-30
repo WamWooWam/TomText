@@ -33,11 +33,11 @@ namespace TomText
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("This section is NOT FINISHED", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             comboBox3.Text = Languages[Properties.Settings.Default.Language];
             comboBox4.Text = Icons[Properties.Settings.Default.IconStyle];
             comboBox1.Text = Languages[Properties.Settings.Default.SpellCheckLanguage];
             textBox1.Text = Properties.Settings.Default.DefaultFont.FontFamily.Name + ", " + Properties.Settings.Default.DefaultFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.DefaultFont.Style.ToString();
+            textBox3.Text = Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.UIFont.Style.ToString();
             textBox2.ForeColor = Properties.Settings.Default.DefaultFontColour;
             //Sets update channel radio buttons
             if (Properties.Settings.Default.UpdateChannel == "main")
@@ -186,6 +186,40 @@ namespace TomText
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("This will reset TomText fonts, this will not take long . Do you want to continue?", "Reset Fonts", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.OK)
+            {
+                MessageBox.Show("TomText will now relaunch.", "TomText", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Properties.Settings.Default.generatedListOfFonts.Clear();
+                Properties.Settings.Default.FirstStartup = true;
+                Properties.Settings.Default.Save();
+                Process.Start(@"TomText.exe");
+                Application.Exit();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FontDialog font = new FontDialog();
+            font.Font = Properties.Settings.Default.UIFont;
+            font.Font = Properties.Settings.Default.UIFont;
+            font.Color = Properties.Settings.Default.UIFontColour;
+            font.ShowColor = true;
+            font.ShowEffects = true;
+            if (font.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Properties.Settings.Default.UIFont = font.Font;
+                Properties.Settings.Default.UIFontColour = font.Color;
+                Properties.Settings.Default.Save();
+                textBox3.Text = Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.UIFont.Style.ToString();
+                textBox3.Text = Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.UIFont.Style.ToString();
+                textBox3.Font = Properties.Settings.Default.UIFont;
+                textBox3.ForeColor = Properties.Settings.Default.UIFontColour;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }

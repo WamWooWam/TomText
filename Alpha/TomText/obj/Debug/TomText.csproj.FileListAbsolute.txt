@@ -17,13 +17,13 @@ E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.exe
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.pdb
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\TomText.exe
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\TomText.pdb
-E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\ConsoleControl.dll
-E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\ConsoleControlAPI.dll
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.csprojResolveAssemblyReference.cache
-E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.DebugTools.DebugConsole.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.TTAbout.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.EditorForm.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.Help.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.Properties.Resources.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.Settings.resources
 E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.csproj.GenerateResource.Cache
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\obj\Debug\TomText.EndUserGUI.FirstRun.resources
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\NHunspell.dll
+E:\Users\Thomas\Desktop\TomText\Alpha\TomText\bin\Debug\NHunspellExtender.dll

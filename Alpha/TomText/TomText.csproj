@@ -15,7 +15,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -37,7 +37,8 @@
     <ApplicationIcon>Resources\1424900464_103723.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -76,11 +77,13 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConsoleControl">
-      <HintPath>..\..\..\..\Downloads\ConsoleControlSample\ConsoleControlSample\Console Control Sample\Windows Forms Sample\ConsoleControl.dll</HintPath>
+    <Reference Include="NHunspell, Version=0.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Net35_ClassDLL\NHunspell.dll</HintPath>
     </Reference>
-    <Reference Include="ConsoleControlAPI">
-      <HintPath>..\..\..\..\Downloads\ConsoleControlSample\ConsoleControlSample\Console Control Sample\Windows Forms Sample\ConsoleControlAPI.dll</HintPath>
+    <Reference Include="NHunspellExtender, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\Net35_ClassDLL\NHunspellExtender.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,11 +97,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugTools\DebugConsole.cs">
+    <Compile Include="EndUserGUI\FirstRun.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DebugTools\DebugConsole.Designer.cs">
-      <DependentUpon>DebugConsole.cs</DependentUpon>
+    <Compile Include="EndUserGUI\FirstRun.Designer.cs">
+      <DependentUpon>FirstRun.cs</DependentUpon>
     </Compile>
     <Compile Include="EndUserGUI\TTAbout.cs">
       <SubType>Form</SubType>
@@ -126,8 +129,8 @@
     <Compile Include="EndUserGUI\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DebugTools\DebugConsole.resx">
-      <DependentUpon>DebugConsole.cs</DependentUpon>
+    <EmbeddedResource Include="EndUserGUI\FirstRun.resx">
+      <DependentUpon>FirstRun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EndUserGUI\TTAbout.resx">
       <DependentUpon>TTAbout.cs</DependentUpon>
@@ -163,6 +166,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NHunspell.dll" />
+    <Content Include="NHunspellExtender.dll" />
     <Content Include="Resources\1424900464_103723.ico" />
     <None Include="Resources\loading.gif" />
     <None Include="Resources\x-office-presentation-template.png" />
