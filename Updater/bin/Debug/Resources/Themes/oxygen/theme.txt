@@ -1,0 +1,3 @@
+Oxygen
+Created by The Oxygen Project.
+Licenced under LGPLv3. From http://www.kde.org/

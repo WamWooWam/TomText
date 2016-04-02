@@ -1,0 +1,3 @@
+GNOME
+Created by The GNOME Project. Designed from the ground up to help you have the best possible computing experience. 
+Licenced under Creative Commons 3.0

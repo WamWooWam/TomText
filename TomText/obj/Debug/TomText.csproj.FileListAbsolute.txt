@@ -1,0 +1,58 @@
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\bin\Debug\TomText.exe.config
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\bin\Debug\TomText.exe
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.Form1.resources
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\MessageForm.resources
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.Properties.Resources.resources
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.exe
+C:\Users\Thomas\documents\visual studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.pdb
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\bin\Debug\TomText.exe.config
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.pdb
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\bin\Debug\TomText.exe
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\bin\Debug\TomText.pdb
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.Form1.resources
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\MessageForm.resources
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.Properties.Resources.resources
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.csproj.GenerateResource.Cache
+G:\Backup\Documents\Visual Studio 2015\Projects\TomText\TomText1\obj\Debug\TomText.exe
+C:\Users\Thomas\Desktop\TomText\bin\Debug\TomText.exe.config
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.exe
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\bin\Debug\TomText.exe
+C:\Users\Thomas\Desktop\TomText\bin\Debug\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.Properties.Resources.resources
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.AboutTomText.resources
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.EditorForm.resources
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.Settings.resources
+C:\Users\Thomas\Desktop\TomText\bin\Debug\Ionic.Zip.dll
+C:\Users\Thomas\Desktop\TomText\bin\Debug\Ionic.Zip.pdb
+C:\Users\Thomas\Desktop\TomText\bin\Debug\Ionic.Zip.xml
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.DevConsole.resources
+C:\Users\Thomas\Desktop\TomText\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.ReqPswd.resources
+C:\Users\Thomas\Desktop\TomText\bin\Debug\en-GB\TomText.resources.dll
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.EditorForm.en-GB.resources
+C:\Users\Thomas\Desktop\TomText\obj\Debug\en-GB\TomText.resources.dll
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\TomText.exe.config
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.exe
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.pdb
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\TomText.exe
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\TomText.pdb
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\en-GB\TomText.resources.dll
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\Ionic.Zip.pdb
+C:\Documents and Settings\Thomas\Desktop\TomText\bin\Debug\Ionic.Zip.xml
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.AboutTomText.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.DevConsole.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.EditorForm.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.ReqPswd.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.Settings.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.Properties.Resources.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\TomText.EditorForm.en-GB.resources
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\en-GB\TomText.resources.dll
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.ReqURL.resources
+C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.VerifyRepo.resources

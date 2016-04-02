@@ -1,0 +1,12 @@
+{
+  	"DPI Scale": "100",
+  	"Image Size": "16",
+  	"Theme Description": "Embedded theme using VS stock icons. Skips icon initialisation.",
+  	"Theme Licence": "",
+  	"Theme Name": "embedded",
+  	"Theme Style": "0",
+  	"Use config.json": "false",
+  	"Uses Embedded": "true",
+  	"Changes icons?" : "false",
+	"Image Type" : "N/A"
+}

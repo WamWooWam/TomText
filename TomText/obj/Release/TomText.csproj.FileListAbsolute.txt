@@ -1,0 +1,10 @@
+C:\Users\Thomas\Desktop\TomText\bin\Release\TomText.exe.config
+C:\Users\Thomas\Desktop\TomText\bin\Release\TomText.exe
+C:\Users\Thomas\Desktop\TomText\bin\Release\TomText.pdb
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.GUI.AboutTomText.resources
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.EditorForm.resources
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.Properties.Resources.resources
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.exe
+C:\Users\Thomas\Desktop\TomText\obj\Release\TomText.pdb

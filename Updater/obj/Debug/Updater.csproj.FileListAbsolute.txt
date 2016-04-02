@@ -1,0 +1,12 @@
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Updater.exe.config
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Updater.exe
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Updater.pdb
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.Form1.resources
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.Properties.Resources.resources
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.csproj.GenerateResource.Cache
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.exe
+C:\Users\Thomas\Desktop\Updater\obj\Debug\Updater.pdb
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Ionic.Zip.dll
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Ionic.Zip.pdb
+C:\Users\Thomas\Desktop\Updater\bin\Debug\Ionic.Zip.xml
