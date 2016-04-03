@@ -32,36 +32,32 @@ namespace TomText
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorForm));
             this.container = new System.Windows.Forms.ToolStripContainer();
-            this.editorBox = new System.Windows.Forms.RichTextBox();
-            this.easyAccessStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.mainMenuStrip = new System.Windows.Forms.ToolStrip();
-            this.formatStrip = new System.Windows.Forms.ToolStrip();
-            this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.fontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.easyAccessStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.undoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.redoToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.mainMenuStrip = new System.Windows.Forms.ToolStrip();
             this.fileDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,32 +95,36 @@ namespace TomText
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.formatStrip = new System.Windows.Forms.ToolStrip();
+            this.fontComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.fontSizeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.boldToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.italicToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.underlineStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.justifyLeftToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.justifyCenterToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.justifyRightToolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.editorBox = new System.Windows.Forms.RichTextBox();
             this.container.ContentPanel.SuspendLayout();
             this.container.RightToolStripPanel.SuspendLayout();
             this.container.TopToolStripPanel.SuspendLayout();
             this.container.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.easyAccessStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             this.formatStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // container
@@ -146,20 +146,59 @@ namespace TomText
             this.container.TopToolStripPanel.Controls.Add(this.mainMenuStrip);
             this.container.TopToolStripPanel.Controls.Add(this.formatStrip);
             // 
-            // editorBox
+            // contextMenuStrip1
             // 
-            this.editorBox.AcceptsTab = true;
-            this.editorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editorBox.ContextMenuStrip = this.contextMenuStrip1;
-            this.editorBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.editorBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "DocFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(this.editorBox, "editorBox");
-            this.editorBox.EnableAutoDragDrop = true;
-            this.editorBox.Font = global::TomText.Properties.Settings.Default.DocFont;
-            this.editorBox.Name = "editorBox";
-            this.editorBox.ShowSelectionMargin = true;
-            this.editorBox.SelectionChanged += new System.EventHandler(this.editorBox_SelectionChanged);
-            this.editorBox.TextChanged += new System.EventHandler(this.editorBox_TextChanged);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem1,
+            this.redoToolStripMenuItem1,
+            this.toolStripSeparator17,
+            this.cutToolStripMenuItem1,
+            this.copyToolStripMenuItem1,
+            this.pasteToolStripMenuItem1,
+            this.toolStripSeparator16,
+            this.selectAllToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // undoToolStripMenuItem1
+            // 
+            this.undoToolStripMenuItem1.Name = "undoToolStripMenuItem1";
+            resources.ApplyResources(this.undoToolStripMenuItem1, "undoToolStripMenuItem1");
+            // 
+            // redoToolStripMenuItem1
+            // 
+            this.redoToolStripMenuItem1.Name = "redoToolStripMenuItem1";
+            resources.ApplyResources(this.redoToolStripMenuItem1, "redoToolStripMenuItem1");
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
+            // 
+            // cutToolStripMenuItem1
+            // 
+            this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
+            resources.ApplyResources(this.cutToolStripMenuItem1, "cutToolStripMenuItem1");
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            resources.ApplyResources(this.copyToolStripMenuItem1, "copyToolStripMenuItem1");
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            resources.ApplyResources(this.pasteToolStripMenuItem1, "pasteToolStripMenuItem1");
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
+            // 
+            // selectAllToolStripMenuItem1
+            // 
+            this.selectAllToolStripMenuItem1.Name = "selectAllToolStripMenuItem1";
+            resources.ApplyResources(this.selectAllToolStripMenuItem1, "selectAllToolStripMenuItem1");
             // 
             // easyAccessStrip
             // 
@@ -181,150 +220,6 @@ namespace TomText
             this.toolStripSeparator13,
             this.exitToolStripButton});
             this.easyAccessStrip.Name = "easyAccessStrip";
-            // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            resources.ApplyResources(this.toolStripSeparator, "toolStripSeparator");
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            resources.ApplyResources(this.toolStripSeparator13, "toolStripSeparator13");
-            // 
-            // mainMenuStrip
-            // 
-            resources.ApplyResources(this.mainMenuStrip, "mainMenuStrip");
-            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileDropDownButton,
-            this.editDropDownButton,
-            this.toolStripDropDownButton1,
-            this.toolsDropDownButton,
-            this.helpDropDownButton});
-            this.mainMenuStrip.Name = "mainMenuStrip";
-            // 
-            // formatStrip
-            // 
-            resources.ApplyResources(this.formatStrip, "formatStrip");
-            this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fontComboBox,
-            this.fontSizeComboBox,
-            this.toolStripSeparator9,
-            this.boldToolStripButton,
-            this.italicToolStripButton,
-            this.underlineStripButton,
-            this.toolStripSeparator10,
-            this.justifyLeftToolStripButton1,
-            this.justifyCenterToolStripButton,
-            this.justifyRightToolStripButton4,
-            this.toolStripSeparator11,
-            this.wordWrapToolStripButton});
-            this.formatStrip.Name = "formatStrip";
-            // 
-            // fontComboBox
-            // 
-            this.fontComboBox.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.fontComboBox, "fontComboBox");
-            this.fontComboBox.Name = "fontComboBox";
-            this.fontComboBox.SelectedIndexChanged += new System.EventHandler(this.fontComboBox_SelectedIndexChanged);
-            // 
-            // fontSizeComboBox
-            // 
-            this.fontSizeComboBox.DropDownWidth = 25;
-            resources.ApplyResources(this.fontSizeComboBox, "fontSizeComboBox");
-            this.fontSizeComboBox.Items.AddRange(new object[] {
-            resources.GetString("fontSizeComboBox.Items"),
-            resources.GetString("fontSizeComboBox.Items1"),
-            resources.GetString("fontSizeComboBox.Items2"),
-            resources.GetString("fontSizeComboBox.Items3"),
-            resources.GetString("fontSizeComboBox.Items4"),
-            resources.GetString("fontSizeComboBox.Items5"),
-            resources.GetString("fontSizeComboBox.Items6"),
-            resources.GetString("fontSizeComboBox.Items7"),
-            resources.GetString("fontSizeComboBox.Items8"),
-            resources.GetString("fontSizeComboBox.Items9"),
-            resources.GetString("fontSizeComboBox.Items10"),
-            resources.GetString("fontSizeComboBox.Items11"),
-            resources.GetString("fontSizeComboBox.Items12"),
-            resources.GetString("fontSizeComboBox.Items13"),
-            resources.GetString("fontSizeComboBox.Items14"),
-            resources.GetString("fontSizeComboBox.Items15")});
-            this.fontSizeComboBox.Name = "fontSizeComboBox";
-            this.fontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.fontSizeComboBox_SelectedIndexChanged);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            resources.ApplyResources(this.toolStripSeparator11, "toolStripSeparator11");
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.progressBar1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.trackBar1);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // progressBar1
-            // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
-            this.progressBar1.Name = "progressBar1";
-            // 
-            // trackBar1
-            // 
-            resources.ApplyResources(this.trackBar1, "trackBar1");
-            this.trackBar1.Maximum = 200;
-            this.trackBar1.Minimum = 20;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar1.Value = 100;
-            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem1,
-            this.redoToolStripMenuItem1,
-            this.toolStripSeparator17,
-            this.cutToolStripMenuItem1,
-            this.copyToolStripMenuItem1,
-            this.pasteToolStripMenuItem1,
-            this.toolStripSeparator16,
-            this.selectAllToolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // undoToolStripMenuItem1
-            // 
-            this.undoToolStripMenuItem1.Name = "undoToolStripMenuItem1";
-            resources.ApplyResources(this.undoToolStripMenuItem1, "undoToolStripMenuItem1");
             // 
             // newToolStripButton
             // 
@@ -355,6 +250,11 @@ namespace TomText
             resources.ApplyResources(this.printToolStripButton, "printToolStripButton");
             this.printToolStripButton.Name = "printToolStripButton";
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            resources.ApplyResources(this.toolStripSeparator, "toolStripSeparator");
+            // 
             // cutToolStripButton
             // 
             this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -376,6 +276,11 @@ namespace TomText
             this.pasteToolStripButton.Name = "pasteToolStripButton";
             this.pasteToolStripButton.Click += new System.EventHandler(this.Paste);
             // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+            // 
             // undoToolStripButton
             // 
             this.undoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -390,11 +295,21 @@ namespace TomText
             this.redoToolStripButton.Name = "redoToolStripButton";
             this.redoToolStripButton.Click += new System.EventHandler(this.Redo);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
             // helpToolStripButton
             // 
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.helpToolStripButton, "helpToolStripButton");
             this.helpToolStripButton.Name = "helpToolStripButton";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            resources.ApplyResources(this.toolStripSeparator13, "toolStripSeparator13");
             // 
             // exitToolStripButton
             // 
@@ -402,6 +317,17 @@ namespace TomText
             resources.ApplyResources(this.exitToolStripButton, "exitToolStripButton");
             this.exitToolStripButton.Name = "exitToolStripButton";
             this.exitToolStripButton.Click += new System.EventHandler(this.Exit);
+            // 
+            // mainMenuStrip
+            // 
+            resources.ApplyResources(this.mainMenuStrip, "mainMenuStrip");
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileDropDownButton,
+            this.editDropDownButton,
+            this.toolStripDropDownButton1,
+            this.toolsDropDownButton,
+            this.helpDropDownButton});
+            this.mainMenuStrip.Name = "mainMenuStrip";
             // 
             // fileDropDownButton
             // 
@@ -648,16 +574,59 @@ namespace TomText
             resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // wordWrapToolStripButton
+            // formatStrip
             // 
-            this.wordWrapToolStripButton.Checked = true;
-            this.wordWrapToolStripButton.CheckOnClick = true;
-            this.wordWrapToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.wordWrapToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.wordWrapToolStripButton.Image = global::TomText.Properties.Resources.WordWrap;
-            this.wordWrapToolStripButton.Name = "wordWrapToolStripButton";
-            resources.ApplyResources(this.wordWrapToolStripButton, "wordWrapToolStripButton");
-            this.wordWrapToolStripButton.Click += new System.EventHandler(this.wordWrapToolStripButton_Click);
+            resources.ApplyResources(this.formatStrip, "formatStrip");
+            this.formatStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontComboBox,
+            this.fontSizeComboBox,
+            this.toolStripSeparator9,
+            this.boldToolStripButton,
+            this.italicToolStripButton,
+            this.underlineStripButton,
+            this.toolStripSeparator10,
+            this.justifyLeftToolStripButton1,
+            this.justifyCenterToolStripButton,
+            this.justifyRightToolStripButton4,
+            this.toolStripSeparator11,
+            this.wordWrapToolStripButton});
+            this.formatStrip.Name = "formatStrip";
+            // 
+            // fontComboBox
+            // 
+            this.fontComboBox.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.fontComboBox, "fontComboBox");
+            this.fontComboBox.Name = "fontComboBox";
+            this.fontComboBox.SelectedIndexChanged += new System.EventHandler(this.fontComboBox_SelectedIndexChanged);
+            // 
+            // fontSizeComboBox
+            // 
+            this.fontSizeComboBox.DropDownWidth = 25;
+            resources.ApplyResources(this.fontSizeComboBox, "fontSizeComboBox");
+            this.fontSizeComboBox.Items.AddRange(new object[] {
+            resources.GetString("fontSizeComboBox.Items"),
+            resources.GetString("fontSizeComboBox.Items1"),
+            resources.GetString("fontSizeComboBox.Items2"),
+            resources.GetString("fontSizeComboBox.Items3"),
+            resources.GetString("fontSizeComboBox.Items4"),
+            resources.GetString("fontSizeComboBox.Items5"),
+            resources.GetString("fontSizeComboBox.Items6"),
+            resources.GetString("fontSizeComboBox.Items7"),
+            resources.GetString("fontSizeComboBox.Items8"),
+            resources.GetString("fontSizeComboBox.Items9"),
+            resources.GetString("fontSizeComboBox.Items10"),
+            resources.GetString("fontSizeComboBox.Items11"),
+            resources.GetString("fontSizeComboBox.Items12"),
+            resources.GetString("fontSizeComboBox.Items13"),
+            resources.GetString("fontSizeComboBox.Items14"),
+            resources.GetString("fontSizeComboBox.Items15")});
+            this.fontSizeComboBox.Name = "fontSizeComboBox";
+            this.fontSizeComboBox.SelectedIndexChanged += new System.EventHandler(this.fontSizeComboBox_SelectedIndexChanged);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
             // 
             // boldToolStripButton
             // 
@@ -683,6 +652,11 @@ namespace TomText
             this.underlineStripButton.Name = "underlineStripButton";
             this.underlineStripButton.Click += new System.EventHandler(this.underlineStripButton_Click);
             // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
+            // 
             // justifyLeftToolStripButton1
             // 
             this.justifyLeftToolStripButton1.CheckOnClick = true;
@@ -707,6 +681,42 @@ namespace TomText
             this.justifyRightToolStripButton4.Name = "justifyRightToolStripButton4";
             this.justifyRightToolStripButton4.Click += new System.EventHandler(this.justifyrightToolStripButton4_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            resources.ApplyResources(this.toolStripSeparator11, "toolStripSeparator11");
+            // 
+            // wordWrapToolStripButton
+            // 
+            this.wordWrapToolStripButton.Checked = true;
+            this.wordWrapToolStripButton.CheckOnClick = true;
+            this.wordWrapToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wordWrapToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.wordWrapToolStripButton.Image = global::TomText.Properties.Resources.WordWrap;
+            this.wordWrapToolStripButton.Name = "wordWrapToolStripButton";
+            resources.ApplyResources(this.wordWrapToolStripButton, "wordWrapToolStripButton");
+            this.wordWrapToolStripButton.Click += new System.EventHandler(this.wordWrapToolStripButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.progressBar1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.trackBar1);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // progressBar1
+            // 
+            resources.ApplyResources(this.progressBar1, "progressBar1");
+            this.progressBar1.Name = "progressBar1";
+            // 
             // button2
             // 
             resources.ApplyResources(this.button2, "button2");
@@ -726,40 +736,30 @@ namespace TomText
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // redoToolStripMenuItem1
+            // trackBar1
             // 
-            this.redoToolStripMenuItem1.Name = "redoToolStripMenuItem1";
-            resources.ApplyResources(this.redoToolStripMenuItem1, "redoToolStripMenuItem1");
+            resources.ApplyResources(this.trackBar1, "trackBar1");
+            this.trackBar1.Maximum = 200;
+            this.trackBar1.Minimum = 20;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar1.Value = 100;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // cutToolStripMenuItem1
+            // editorBox
             // 
-            this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
-            resources.ApplyResources(this.cutToolStripMenuItem1, "cutToolStripMenuItem1");
-            // 
-            // copyToolStripMenuItem1
-            // 
-            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
-            resources.ApplyResources(this.copyToolStripMenuItem1, "copyToolStripMenuItem1");
-            // 
-            // pasteToolStripMenuItem1
-            // 
-            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
-            resources.ApplyResources(this.pasteToolStripMenuItem1, "pasteToolStripMenuItem1");
-            // 
-            // selectAllToolStripMenuItem1
-            // 
-            this.selectAllToolStripMenuItem1.Name = "selectAllToolStripMenuItem1";
-            resources.ApplyResources(this.selectAllToolStripMenuItem1, "selectAllToolStripMenuItem1");
-            // 
-            // toolStripSeparator16
-            // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
+            this.editorBox.AcceptsTab = true;
+            this.editorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.editorBox.ContextMenuStrip = this.contextMenuStrip1;
+            this.editorBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.editorBox.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "DocFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.editorBox, "editorBox");
+            this.editorBox.EnableAutoDragDrop = true;
+            this.editorBox.Font = global::TomText.Properties.Settings.Default.DocFont;
+            this.editorBox.Name = "editorBox";
+            this.editorBox.ShowSelectionMargin = true;
+            this.editorBox.SelectionChanged += new System.EventHandler(this.editorBox_SelectionChanged);
+            this.editorBox.TextChanged += new System.EventHandler(this.editorBox_TextChanged);
             // 
             // EditorForm
             // 
@@ -780,6 +780,7 @@ namespace TomText
             this.container.TopToolStripPanel.PerformLayout();
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.easyAccessStrip.ResumeLayout(false);
             this.easyAccessStrip.PerformLayout();
             this.mainMenuStrip.ResumeLayout(false);
@@ -789,7 +790,6 @@ namespace TomText
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
