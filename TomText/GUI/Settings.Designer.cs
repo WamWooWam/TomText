@@ -48,6 +48,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -65,7 +66,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -85,9 +85,10 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(311, 388);
+            this.button1.AutoSize = true;
+            this.button1.Location = new System.Drawing.Point(312, 386);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 1;
             this.button1.Text = "&OK";
             this.button1.UseVisualStyleBackColor = true;
@@ -132,9 +133,10 @@
             // 
             // button5
             // 
+            this.button5.AutoSize = true;
             this.button5.Location = new System.Drawing.Point(115, 79);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 23);
+            this.button5.Size = new System.Drawing.Size(120, 25);
             this.button5.TabIndex = 5;
             this.button5.Text = "Rescan for themes";
             this.button5.UseVisualStyleBackColor = true;
@@ -142,9 +144,10 @@
             // 
             // button4
             // 
+            this.button4.AutoSize = true;
             this.button4.Location = new System.Drawing.Point(242, 79);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 23);
+            this.button4.Size = new System.Drawing.Size(122, 25);
             this.button4.TabIndex = 4;
             this.button4.Text = "Open themes folder";
             this.button4.UseVisualStyleBackColor = true;
@@ -154,8 +157,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Checked = global::TomText.Properties.Settings.Default.UsingVariant;
-            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::TomText.Properties.Settings.Default, "UsingVariant", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            checkBox1.Checked = global::TomText.Properties.Settings.Default.HiDPI;
             this.checkBox1.Location = new System.Drawing.Point(10, 82);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(61, 19);
@@ -196,6 +198,7 @@
             // 
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(7, 23);
             this.comboBox1.Name = "comboBox1";
@@ -230,6 +233,17 @@
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Update options";
+            // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.Location = new System.Drawing.Point(293, 192);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 25);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Add...";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label6
             // 
@@ -310,6 +324,7 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.AutoSize = true;
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.button2);
@@ -350,9 +365,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(344, 23);
+            this.button2.Location = new System.Drawing.Point(340, 22);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 29);
+            this.button2.Size = new System.Drawing.Size(30, 25);
             this.button2.TabIndex = 0;
             this.button2.Text = "...";
             this.button2.UseVisualStyleBackColor = true;
@@ -385,7 +400,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(117, 49);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(122, 23);
+            this.comboBox3.Size = new System.Drawing.Size(253, 23);
             this.comboBox3.TabIndex = 3;
             this.comboBox3.Text = global::TomText.Properties.Settings.Default.SpellLang;
             // 
@@ -406,7 +421,7 @@
             "Chinese (Simplified)"});
             this.comboBox2.Location = new System.Drawing.Point(117, 20);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(122, 23);
+            this.comboBox2.Size = new System.Drawing.Size(253, 23);
             this.comboBox2.TabIndex = 2;
             // 
             // label2
@@ -451,29 +466,20 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 388);
+            this.button3.AutoSize = true;
+            this.button3.Location = new System.Drawing.Point(12, 386);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(75, 25);
             this.button3.TabIndex = 2;
             this.button3.Text = "Reset &All";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(293, 192);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Add...";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Settings
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(399, 423);
             this.Controls.Add(this.button3);
@@ -503,6 +509,7 @@
             this.groupBox2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

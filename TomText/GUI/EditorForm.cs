@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 //using System.Collections.Generic;
 //using System.ComponentModel;
 //using System.Data;
@@ -17,29 +18,78 @@ namespace TomText
 {
     public partial class EditorForm : Form
     {
+        //Loads debug outputer
+        System.IO.StreamWriter _debug =
+                new System.IO.StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + @"\debug-" + DateTime.Now.ToString().Replace('/', '-').Replace(':', '-') + ".txt");
         //Working document
-        string doc = "Untitled";
+        private string _doc = "Untitled";
         //Shows if the document has been edited. This way the app can show a "Do you wish to save" box on closure or new document creation.
-        bool edited = false;
+        private bool _edited = false;
         //Initialises dialog boxes.
-        SaveFileDialog save = new SaveFileDialog();
-        OpenFileDialog open = new OpenFileDialog();
+        private SaveFileDialog save = new SaveFileDialog();
+        private OpenFileDialog open = new OpenFileDialog();
         //App begins
         public EditorForm()
         {
+            #region Initial Debug Output
+            _debug.WriteLine("--- TomText Debug Output Begin ---");
+            _debug.WriteLine("Welcome to " + Properties.Settings.Default.AppName + " ver. " + Application.ProductVersion);
+            _debug.WriteLine("Current OS is " + Environment.OSVersion.Version);
+            _debug.WriteLine("Launch time " + DateTime.Now);
+            _debug.WriteLine("\r\n--- Current Settings ---");
+            _debug.WriteLine("AppName               =   " + Properties.Settings.Default.AppName);
+            _debug.WriteLine("Check for Updates     =   " + Properties.Settings.Default.CheckForUpdates.ToString());
+            _debug.WriteLine("Language              =   " + Properties.Settings.Default.UILang);
+            _debug.WriteLine("Spelling Language     =   " + Properties.Settings.Default.SpellLang);
+            _debug.WriteLine("UIFont                =   " + Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints + "pt");
+            _debug.WriteLine("DocFont               =   " + Properties.Settings.Default.DocFont.FontFamily.Name + ", " + Properties.Settings.Default.DocFont.SizeInPoints + "pt");
+            _debug.WriteLine("UIRes                 =   " + Properties.Settings.Default.UIRes.Width + "x" + Properties.Settings.Default.UIRes.Height);
+            _debug.WriteLine("Openable File Types   =   " + Properties.Settings.Default.OpenableFileTypes);
+            _debug.WriteLine("Saveable File Types   =   " + Properties.Settings.Default.SaveableFileTypes);
+            if (Properties.Settings.Default.HiDPI){_debug.WriteLine("Theme               =  " + Properties.Settings.Default.Theme + " (Hi-DPI)");} else {_debug.WriteLine("Theme                 =   " + Properties.Settings.Default.Theme);}
+            _debug.WriteLine("\r\n--- Font Cache ---");
+            foreach (string font in Properties.Settings.Default.FontCache)
+            {
+                _debug.WriteLine("    " + font);
+            }
+            _debug.WriteLine("--- End Font Cache ---");
+            #endregion
             //Begins app initialisation
             InitializeComponent();
-            save.Filter = "Rich Text Format (*.rtf)|*.rtf|Compressed Rich Text Format (*.rtfc)|*.rtfc|Encrypted Rich Text Format (*.rtfe)|*.rtfe|Text Document (*.txt)|*.txt";
-            open.Filter = "All TomText Editable Formats (*.txt; *.rtf)|*.txt; *.rtf; *.ldf; *.tdf; *.rtfc; *.rtfe|Rich Text Format (*.rtf)|*.rtf*; .rtfc; *.rtfe|Text Document (*.txt)|*.txt";
-            foreach (FontFamily font in System.Drawing.FontFamily.Families)
-            {
-                fontComboBox.Items.Add(font.Name);
-            }
+            _debug.WriteLine("\r\n");
+            _debug.WriteLine("Designer code initialised");
+            save.Filter = Properties.Settings.Default.SaveableFileTypes;
+            open.Filter = Properties.Settings.Default.OpenableFileTypes;
+            _debug.WriteLine("Prepared Openable/Saveable filenames");
             fontComboBox.Text = editorBox.Font.FontFamily.Name.ToString();
             fontSizeComboBox.Text = editorBox.Font.SizeInPoints.ToString();
             label1.Hide();
             progressBar1.Hide();
+            _debug.WriteLine("");
             RefreshGUI();
+            if (Properties.Settings.Default.FontCache.Count == 0)
+            {
+                label2.Text = "Building font cache, please wait.";
+                foreach (FontFamily font in System.Drawing.FontFamily.Families)
+                {
+                    Font add = new Font(font, 9, FontStyle.Regular);
+                    Properties.Settings.Default.FontCache.Add(add.Name);
+                    Properties.Settings.Default.Save();
+                }
+                foreach (String font in Properties.Settings.Default.FontCache)
+                {
+                    fontComboBox.Items.Add(font);
+                }
+                label2.Text = "Ready";
+            }
+            else
+            {
+                foreach (String font in Properties.Settings.Default.FontCache)
+                {
+                    fontComboBox.Items.Add(font);
+                }
+            }
+            #region Open File on Launch
             string[] args = Environment.GetCommandLineArgs();
             if (File.Exists("temp"))
             {
@@ -48,33 +98,33 @@ namespace TomText
             }
             try
             {
-                doc = args[1];
-                if (Path.GetExtension(doc) == ".txt")
+                _doc = args[1];
+                if (Path.GetExtension(_doc) == ".txt")
                 {
-                    editorBox.LoadFile(doc, RichTextBoxStreamType.PlainText);
+                    editorBox.LoadFile(_doc, RichTextBoxStreamType.PlainText);
                 }
                 else
                 {
-                    if (Path.GetExtension(doc) == ".rtfc")
+                    if (Path.GetExtension(_doc) == ".rtfc")
                     {
-                        ZipFile zip = ZipFile.Read(doc);
-                        zip.ExtractProgress += new System.EventHandler<ExtractProgressEventArgs>(ExtractProgress);
+                        ZipFile zip = ZipFile.Read(_doc);
+                        zip.ExtractProgress += (ExtractProgress);
                         zip.ExtractAll(Path.GetTempPath(), ExtractExistingFileAction.OverwriteSilently);
                         progressBar1.Hide();
                         label1.Show();
-                        editorBox.LoadFile(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(doc));
+                        editorBox.LoadFile(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(_doc));
                         label1.Hide();
-                        File.Delete(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(doc));
+                        File.Delete(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(_doc));
                         UseWaitCursor = false;
                     }
                     else
                     {
-                        if (Path.GetExtension(doc) == ".rtfe")
+                        if (Path.GetExtension(_doc) == ".rtfe")
                         {
-                            var pwform = new GUI.ReqPswd(doc, false);
+                            var pwform = new GUI.ReqPswd(_doc, false);
                             if (pwform.ShowDialog() == DialogResult.OK)
                             {
-                                ZipFile zip = ZipFile.Read(doc);
+                                ZipFile zip = ZipFile.Read(_doc);
                                 zip.ExtractProgress += new System.EventHandler<ExtractProgressEventArgs>(ExtractProgress);
                                 zip.Password = pwform.pw;
                                 zip.Encryption = EncryptionAlgorithm.WinZipAes256;
@@ -83,9 +133,9 @@ namespace TomText
                                     zip.ExtractAll(Path.GetTempPath(), ExtractExistingFileAction.OverwriteSilently);
                                     progressBar1.Hide();
                                     label1.Show();
-                                    editorBox.LoadFile(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(doc));
+                                    editorBox.LoadFile(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(_doc));
                                     label1.Hide();
-                                    File.Delete(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(doc));
+                                    File.Delete(Path.GetTempPath() + @"\" + Path.GetTempPath() + Path.GetFileName(_doc));
                                     UseWaitCursor = false;
                                 }
                                 catch
@@ -98,37 +148,37 @@ namespace TomText
                         {
                             try
                             {
-                                editorBox.LoadFile(doc, RichTextBoxStreamType.RichText);
+                                editorBox.LoadFile(_doc, RichTextBoxStreamType.RichText);
                             }
                             catch
                             {
-                                editorBox.LoadFile(doc, RichTextBoxStreamType.PlainText);
+                                editorBox.LoadFile(_doc, RichTextBoxStreamType.PlainText);
                             }
                         }
                     }
                 }
-                edited = false;
+                _edited = false;
             }
             catch { }
+#endregion
         }
 
         private void editorBox_TextChanged(object sender, EventArgs e)
         {
-            edited = true;
+            _edited = true;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
             
-                
         }
         #region Button Functions
         //Creates a new file
         private void New(object sender, EventArgs e)
         {
-            if (edited == true)
+            if (_edited == true)
             {
-                DialogResult result = MessageBox.Show("The document " + doc + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("The document " + _doc + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     Save(null, null);
@@ -136,24 +186,24 @@ namespace TomText
                 if (result == System.Windows.Forms.DialogResult.No)
                 {
                     editorBox.Clear();
-                    edited = false;
-                    doc = "Untitled";
+                    _edited = false;
+                    _doc = "Untitled";
                 }
             }
             else
             {
                 editorBox.Clear();
-                edited = false;
-                doc = "Untitled";
+                _edited = false;
+                _doc = "Untitled";
             }
 
         }
         //Opens a file
         private void Open(object sender, EventArgs e)
         {
-            if (edited == true)
+            if (_edited == true)
             {
-                DialogResult result = MessageBox.Show("The document " + doc + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("The document " + _doc + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     Save(null, null);
@@ -223,8 +273,8 @@ namespace TomText
                         }
                     }
                 }
-                edited = false;
-                doc = open.FileName;
+                _edited = false;
+                _doc = open.FileName;
             }
         }
         //Saves a file
@@ -236,9 +286,9 @@ namespace TomText
             }
             else
             {
-                if (doc == "Untitled")
+                if (_doc == "Untitled")
                 {
-                    save.Title = "Saving file: " + doc;
+                    save.Title = "Saving file: " + _doc;
                     if (save.ShowDialog() == DialogResult.OK)
                     {
                         if (Path.GetExtension(save.FileName) == ".txt")
@@ -286,45 +336,45 @@ namespace TomText
                                 }
                             }
                         }
-                        doc = save.FileName;
-                        edited = false;
+                        _doc = save.FileName;
+                        _edited = false;
                     }
                 }
                 else
                 {
-                    if (Path.GetExtension(doc) == ".txt")
+                    if (Path.GetExtension(_doc) == ".txt")
                     {
-                        editorBox.SaveFile(doc, RichTextBoxStreamType.PlainText);
+                        editorBox.SaveFile(_doc, RichTextBoxStreamType.PlainText);
                     }
                     else
                     {
-                        if (Path.GetExtension(doc) == ".rtfc")
+                        if (Path.GetExtension(_doc) == ".rtfc")
                         {
-                            editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(doc), RichTextBoxStreamType.RichText);
+                            editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(_doc), RichTextBoxStreamType.RichText);
                             ZipFile zip = new ZipFile();
                             zip.SaveProgress += new EventHandler<SaveProgressEventArgs>(SaveProgress);
-                            zip.AddFile(Path.GetTempPath() + Path.GetFileName(doc));
+                            zip.AddFile(Path.GetTempPath() + Path.GetFileName(_doc));
                             try
-                            { zip.Save(doc); }
-                            catch { MessageBox.Show("Unable to save " + doc); }
+                            { zip.Save(_doc); }
+                            catch { MessageBox.Show("Unable to save " + _doc); }
                             progressBar1.Hide();
                             UseWaitCursor = false;
                         }
                         else
                         {
-                            if (Path.GetExtension(doc) == ".rtfe")
+                            if (Path.GetExtension(_doc) == ".rtfe")
                             {
-                                var pwform = new GUI.ReqPswd(doc, true);
+                                var pwform = new GUI.ReqPswd(_doc, true);
                                 if (pwform.ShowDialog() == DialogResult.OK)
                                 {
-                                    editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(doc), RichTextBoxStreamType.RichText);
+                                    editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(_doc), RichTextBoxStreamType.RichText);
                                     ZipFile zip = new ZipFile();
                                     zip.SaveProgress += new EventHandler<SaveProgressEventArgs>(SaveProgress);
                                     zip.Password = pwform.pw;
                                     zip.Encryption = EncryptionAlgorithm.WinZipAes256;
-                                    zip.AddFile(Path.GetTempPath() + Path.GetFileName(doc));
-                                    zip.Save(doc);
-                                    File.Delete(Path.GetTempPath() + Path.GetFileName(doc));
+                                    zip.AddFile(Path.GetTempPath() + Path.GetFileName(_doc));
+                                    zip.Save(_doc);
+                                    File.Delete(Path.GetTempPath() + Path.GetFileName(_doc));
                                     progressBar1.Hide();
                                     UseWaitCursor = false;
                                 }
@@ -335,7 +385,7 @@ namespace TomText
                             }
                         }
                     }
-                    edited = false;
+                    _edited = false;
                 }
             }
         }
@@ -343,16 +393,16 @@ namespace TomText
         private void SaveAs(object sender, EventArgs e)
         {
             string themepath;
-            if (Properties.Settings.Default.UsingVariant)
+            if (Properties.Settings.Default.HiDPI)
             {
-                themepath =  Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\" + Properties.Settings.Default.ThemeVariant;
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI";
             }
             else
             {
-                themepath = Path.GetDirectoryName(Application.ExecutablePath) +@"/Resources/Themes/" + Properties.Settings.Default.Theme;
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
             }
             saveToolStripButton.Image =  Image.FromFile(themepath + @"/save-as.png");
-            save.Title = "Saving file: " + Path.GetTempPath() + Path.GetFileName(doc);
+            save.Title = "Saving file: " + Path.GetTempPath() + Path.GetFileName(_doc);
              if (save.ShowDialog() == DialogResult.OK)
                     {
                         if (Path.GetExtension(save.FileName) == ".txt")
@@ -397,8 +447,8 @@ namespace TomText
                                 }
                             }
                         }
-                        doc = save.FileName;
-                        edited = false;
+                        _doc = save.FileName;
+                        _edited = false;
                     
                 saveToolStripButton.Image = Image.FromFile(themepath + @"/save.png");
             }
@@ -461,45 +511,68 @@ namespace TomText
         private void RefreshGUI()
         {
             string name = "";
+            _debug.WriteLine("--- Begin Refresh GUI ---");
             //Reads theme .json files
             JObject themeinfo = null;
             string themepath;
             string imgtype = null;
+            #region Load Theme Config Files
             if (Properties.Settings.Default.HiDPI)
             {
                 themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI";
+                _debug.WriteLine("Loading theme.json form " + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI");
             }
             else
             {
                 themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
+                _debug.WriteLine("Loading theme.json form " + @"\Resources\Themes\" + Properties.Settings.Default.Theme);
             }
             try
             {
                 themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                _debug.WriteLine("Loaded theme.json form " + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI" + @"\theme.json");
+                _debug.WriteLine("\r\n--- Loaded theme.json ---");
+                foreach (string line in File.ReadAllLines(themepath + @"\theme.json"))
+                {
+                    _debug.WriteLine(line);
+                }
+                _debug.WriteLine("--- End of loaded theme.json ---");
+                _debug.WriteLine("\r\n");
             }
             catch
             {
+                _debug.WriteLine("ERROR: MISSING/INVALID THEME.JSON FILE (CODE: TH001)");
                 MessageBox.Show(@"The theme you've selected doesn't have a valid theme configuration file (theme.json), Using embedded theme and reseting theme setting", "Theming Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Properties.Settings.Default.Reset();
+                _debug.WriteLine("SETTINGS RESET, ATTEMPT 2");
                 if (Properties.Settings.Default.HiDPI)
                 {
                     themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI";
+                    _debug.WriteLine("Loading theme.json form " + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI");
                 }
                 else
                 {
                     themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
+                    _debug.WriteLine("Loading theme.json form " + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI");
                 }
                 try
                 {
                     themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                    _debug.WriteLine("Loaded theme.json form " + themepath + @"\theme.json");
+                    _debug.WriteLine("\r\n--- Loaded theme.json ---");
+                    foreach (string line in File.ReadAllLines(themepath + @"\theme.json"))
+                    {
+                        _debug.WriteLine(line);
+                    }
+                    _debug.WriteLine("--- End of loaded theme.json ---");
                 }
                 catch
                 {
+                    _debug.WriteLine("ERROR: NO VALID THEME.JSON FILES (CODE: TH002)");
                     MessageBox.Show("There doesn't seem to be any valid themes, using embedded theme");
                     Properties.Settings.Default.Theme = "embedded";
                 }
             }
-            
             try
             {
                 imgtype = themeinfo.GetValue("Image Type").ToString();
@@ -508,39 +581,44 @@ namespace TomText
             {
                 imgtype = ".png";
             }
+#endregion
             //Sets window title
-            this.Text = doc + " - " + Properties.Settings.Default.AppName;
-            //Sets window resolution
-            this.Size = Properties.Settings.Default.UIRes;
+            this.Text = _doc + " - " + Properties.Settings.Default.AppName;
+            _debug.WriteLine("Window title set");
             //Sets the window icon if the theme specifies 
             if (themeinfo != null && themeinfo.GetValue("Changes icons?").ToString() == "true")
             {
                 this.Icon = new Icon(Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/icon.ico");
+                _debug.WriteLine("Window icon set");
             }
 
             foreach (ToolStrip strip in container.TopToolStripPanel.Controls.OfType<ToolStrip>())
             {
+                _debug.WriteLine("\r\n");
                 themeToolStrips(strip, imgtype, name, themeinfo, themepath);
             }
 
             foreach (ToolStrip strip in container.BottomToolStripPanel.Controls.OfType<ToolStrip>())
             {
+                _debug.WriteLine("\r\n");
                 themeToolStrips(strip, imgtype, name, themeinfo, themepath);
             }
 
             foreach (ToolStrip strip in container.LeftToolStripPanel.Controls.OfType<ToolStrip>())
             {
+                _debug.WriteLine("\r\n");
                 themeToolStrips(strip, imgtype, name, themeinfo, themepath);
             }
 
             foreach (ToolStrip strip in container.RightToolStripPanel.Controls.OfType<ToolStrip>())
             {
+                _debug.WriteLine("\r\n");
                 themeToolStrips(strip, imgtype, name, themeinfo, themepath);
             }
             panel1.Size = new Size(panel1.Size.Width, int.Parse(themeinfo.GetValue("Image Size").ToString()));
             foreach (Button bt in panel1.Controls.OfType<Button>())
             {
-                Console.WriteLine(@"Begining initialisation of: " + bt.Name);
+                _debug.WriteLine(@"Begining initialisation of: " + bt.Name);
                 bt.Size = new Size(int.Parse(themeinfo.GetValue("Image Size").ToString()), int.Parse(themeinfo.GetValue("Image Size").ToString()));
                 name = bt.Text;
                 name = name.Replace("&", "");
@@ -548,14 +626,14 @@ namespace TomText
                 name = name.Replace(".", "");
                 try
                 {
-                    if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
+                    if (Properties.Settings.Default.Theme == "embedded")
                     {
-                        Console.WriteLine("Using embedded theme. Skipping initialisation for " + bt.Name);
+                        _debug.WriteLine("Using embedded theme. Skipping initialisation for " + bt.Name);
                     }
                     else
                     {
                         bt.Image = Image.FromFile(themepath + @"/" + name.ToLower() + imgtype);
-                        Console.WriteLine("Initialised: " + bt.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
+                        _debug.WriteLine("Initialised: " + bt.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
                     }
                 }
                 catch
@@ -571,16 +649,16 @@ namespace TomText
                     name = name.Replace(".", "");
                     try
                     {
-                        if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
+                        if (Properties.Settings.Default.Theme == "embedded")
                         {
-                            Console.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
+                            _debug.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
                         }
                         else
                         {
                             try
                             {
                                 item.Image = Image.FromFile(themepath + @"/" + name.ToLower() + imgtype);
-                                Console.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
+                                _debug.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
                                 try
                                 {
                                     if (imgtype == ".bmp")
@@ -610,25 +688,14 @@ namespace TomText
                         item.Font = Properties.Settings.Default.UIFont;
                     }
                     catch
-                    {
-                        try
-                        {
-                            if (themeinfo.GetValue("Uses Embedded").ToString() == "false")
-                            {
-                                item.Image = Properties.Resources.Blank;
-                                MessageBox.Show("There was an error while trying to theme a menu item. Using failsafe icon. Ensure a file exists at: " + Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show("There was an error while trying to theme a menu item. Using failsafe icon. Ensure a file exists at: " + Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
-                        }
-                    }
+                    {}
                 }
             
         }
         private void themeToolStrips(ToolStrip strip, String imgtype, String name, JObject themeinfo, string themepath)
         {
+            //Gets all toolstrip buttons
+            _debug.WriteLine("Begining initialisation of: " + strip.Name);
             try
             {
                 if (themeinfo.GetValue("Theme Style").ToString() == "1") { strip.RenderMode = ToolStripRenderMode.System; }
@@ -639,13 +706,12 @@ namespace TomText
                 }
                 //Enables Hi-DPI images if specified
                 strip.ImageScalingSize = new Size(int.Parse(themeinfo.GetValue("Image Size").ToString()), int.Parse(themeinfo.GetValue("Image Size").ToString()));
+                _debug.WriteLine("Theme styles set");
             }
             catch (Exception)
             {
-                
+
             }
-            //Gets all toolstrip buttons
-            Console.WriteLine("Begining initialisation of: " + strip.Name);
             foreach (ToolStripButton item in strip.Items.OfType<ToolStripButton>())
             {
                 name = item.Text;
@@ -654,9 +720,9 @@ namespace TomText
                 name = name.Replace(".", "");
                 try
                 {
-                    if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
+                    if (Properties.Settings.Default.Theme == "embedded")
                     {
-                        Console.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
+                        _debug.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
                     }
                     else
                     {
@@ -673,7 +739,7 @@ namespace TomText
                             }
                         }
                         catch { }
-                        Console.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
+                        _debug.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
                         try
                         {
                             if (imgtype == ".bmp")
@@ -681,26 +747,19 @@ namespace TomText
                                 item.ImageTransparentColor = Color.FromName(themeinfo.GetValue("BMP Back Colour").ToString());
                             }
                         }
-                        catch { };
+                        catch { }
                     }
                     item.Font = Properties.Settings.Default.UIFont;
                 }
                 catch
-                {
-                    if (themeinfo.GetValue("Uses Embedded").ToString() == "false")
-                    {
-                        item.Image = Properties.Resources.Blank;
-                        MessageBox.Show("There was an error while trying to theme a menu item. Using failsafe icon. Ensure a file exists at: " + Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
-                    }
-
-                }
+                {}
             }
             foreach (ToolStripDropDownButton dd in strip.Items.OfType<ToolStripDropDownButton>())
             {
 
                 if (dd.HasDropDownItems == true)
                 {
-                    Console.WriteLine("Begining initialisation of: " + dd.Name);
+                    _debug.WriteLine("Begining initialisation of: " + dd.Name);
                     foreach (ToolStripMenuItem item in dd.DropDownItems.OfType<ToolStripMenuItem>())
                     {
                         name = item.Text;
@@ -709,16 +768,16 @@ namespace TomText
                         name = name.Replace(".", "");
                         try
                         {
-                            if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
+                            if (Properties.Settings.Default.Theme == "embedded")
                             {
-                                Console.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
+                                _debug.WriteLine("Using embedded theme. Skipping initialisation for " + item.Name);
                             }
                             else
                             {
                                 try
                                 {
                                     item.Image = Image.FromFile(themepath + @"/" + name.ToLower() + imgtype);
-                                    Console.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
+                                    _debug.WriteLine("Initialised: " + item.Name + " with image: " + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
                                     try
                                     {
                                         if (imgtype == ".bmp")
@@ -748,20 +807,7 @@ namespace TomText
                             item.Font = Properties.Settings.Default.UIFont;
                         }
                         catch
-                        {
-                            try
-                            {
-                                if (themeinfo.GetValue("Uses Embedded").ToString() == "false")
-                                {
-                                    item.Image = Properties.Resources.Blank;
-                                    MessageBox.Show("There was an error while trying to theme a menu item. Using failsafe icon. Ensure a file exists at: " + Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
-                                }
-                            }
-                            catch
-                            {
-                                MessageBox.Show("There was an error while trying to theme a menu item. Using failsafe icon. Ensure a file exists at: " + Path.GetDirectoryName(Application.ExecutablePath) + @"/Resources/Themes/" + Properties.Settings.Default.Theme + @"/" + name.ToLower() + imgtype);
-                            }
-                        }
+                        {}
                     }
                 }
 
@@ -779,8 +825,8 @@ namespace TomText
                 if (MessageBox.Show("To select the embedded theme, the app must relaunch. Do you want to relaunch now?","Relaunch Required", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     editorBox.SaveFile("temp");
-                    edited = false;
-                    System.Diagnostics.Process.Start(Application.ExecutablePath);
+                    _edited = false;
+                    Process.Start(Application.ExecutablePath);
                     Close();
                 }
                 else
@@ -828,17 +874,16 @@ namespace TomText
         {
 
         }
-        #endregion
         private void EditorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (edited == true)
+            if (_edited == true)
             {
-                DialogResult result = MessageBox.Show("The document " + Path.GetTempPath() + Path.GetFileName(doc) + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                DialogResult result = MessageBox.Show("The document " + Path.GetTempPath() + Path.GetFileName(_doc) + " has not been saved. Do you want to save the changes?", "Save changes?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (doc == "Untitled")
+                    if (_doc == "Untitled")
                     {
-                        save.Title = "Saving file: " + doc;
+                        save.Title = "Saving file: " + _doc;
                         if (save.ShowDialog() == DialogResult.OK)
                         {
                             if (Path.GetExtension(save.FileName) == ".txt")
@@ -887,46 +932,46 @@ namespace TomText
                                     }
                                 }
                             }
-                            doc = save.FileName;
-                            edited = false;
+                            _doc = save.FileName;
+                            _edited = false;
                         }
                     }
                     else
                     {
-                        if (Path.GetExtension(doc) == ".txt")
+                        if (Path.GetExtension(_doc) == ".txt")
                         {
-                            editorBox.SaveFile(doc, RichTextBoxStreamType.PlainText);
+                            editorBox.SaveFile(_doc, RichTextBoxStreamType.PlainText);
                         }
                         else
                         {
-                            if (Path.GetExtension(doc) == ".rtfc")
+                            if (Path.GetExtension(_doc) == ".rtfc")
                             {
-                                editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(doc), RichTextBoxStreamType.RichText);
+                                editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(_doc), RichTextBoxStreamType.RichText);
                                 ZipFile zip = new ZipFile();
                                 zip.SaveProgress += new EventHandler<SaveProgressEventArgs>(SaveProgress);
-                                zip.AddFile(Path.GetTempPath() + Path.GetFileName(doc));
+                                zip.AddFile(Path.GetTempPath() + Path.GetFileName(_doc));
                                 try
-                                { zip.Save(doc); }
-                                catch { MessageBox.Show("Unable to save " + doc); }
+                                { zip.Save(_doc); }
+                                catch { MessageBox.Show("Unable to save " + _doc); }
                                 progressBar1.Hide();
                                 UseWaitCursor = false;
                             }
                             else
                             {
-                                if (Path.GetExtension(doc) == ".rtfe")
+                                if (Path.GetExtension(_doc) == ".rtfe")
                                 {
-                                    var pwform = new GUI.ReqPswd(doc, true);
+                                    var pwform = new GUI.ReqPswd(_doc, true);
                                     if (pwform.ShowDialog() == DialogResult.OK)
                                     {
-                                        editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(doc), RichTextBoxStreamType.RichText);
+                                        editorBox.SaveFile(Path.GetTempPath() + Path.GetFileName(_doc), RichTextBoxStreamType.RichText);
                                         ZipFile zip = new ZipFile();
                                         zip.SaveProgress += new EventHandler<SaveProgressEventArgs>(SaveProgress);
                                         zip.Password = pwform.pw;
                                         zip.Encryption = EncryptionAlgorithm.WinZipAes256;
-                                        zip.AddFile(Path.GetTempPath() + Path.GetFileName(doc));
-                                        zip.Save(doc + ".tmp");
-                                        File.Delete(doc);
-                                        File.Move(doc + ".tmp", doc);
+                                        zip.AddFile(Path.GetTempPath() + Path.GetFileName(_doc));
+                                        zip.Save(_doc + ".tmp");
+                                        File.Delete(_doc);
+                                        File.Move(_doc + ".tmp", _doc);
                                         progressBar1.Hide();
                                         UseWaitCursor = false;
                                     }
@@ -937,7 +982,7 @@ namespace TomText
                                 }
                             }
                         }
-                        edited = false;
+                        _edited = false;
                     }
                 }
             }
@@ -971,7 +1016,7 @@ namespace TomText
         {
             Close();
         }
-
+        #endregion
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
@@ -1003,7 +1048,7 @@ namespace TomText
         private void insertToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog insert = new OpenFileDialog();
-            insert.Filter = "All Insertable Files (*.*)|*.*";
+            insert.Filter = "All Insertable Files (*.jpeg; *.jpg; *.png; *.ico; *.gif; *.bmp; *.emp; *.wmf; *.tiff; *.txt; *.rtf; *.cs; *.vb; *.c; *.h; *.xml; *.json)|*.jpeg; *.jpg; *.png; *.ico; *.gif; *.bmp; *.emp; *.wmf; *.tiff; *.txt; *.rtf; *.cs; *.vb; *.c; *.h; *.xml; *.json";
             insert.Multiselect = true;
             if (insert.ShowDialog() == DialogResult.OK)
             {
@@ -1078,25 +1123,24 @@ namespace TomText
             progressBar1.Maximum = int.Parse(Math.Round(bytestoextract).ToString());
             progressBar1.Value = int.Parse(Math.Round(bytestransferred).ToString());
         }
-
-        private void EditorForm_DragDrop(object sender, DragEventArgs e)
-        {
-            
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void wordWrapToolStripButton_Click(object sender, EventArgs e)
         {
             editorBox.WordWrap = wordWrapToolStripButton.Checked;
         }
 
+        private void websiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://louisoft01.com/apphost/tomtext/");
+        }
+
         private void EditorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _debug.Close();
         }
     }
 }

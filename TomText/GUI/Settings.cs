@@ -108,68 +108,89 @@ namespace TomText.GUI
             Properties.Settings.Default.Reset();
             Properties.Settings.Default.Save();
         }
+
         private void RefreshGUI()
         {
             Image ico;
             int no = 0;
             imageList1.Images.Clear();
             string themepath;
+
             if (Properties.Settings.Default.HiDPI)
             {
-                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI";
-            }
-            else
-            {
-                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
-            }
-            JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
-            string imgtype;
-            try
-            {
-                 imgtype = themeinfo.GetValue("Image Type").ToString();
-            }
-            catch
-            {
-                imgtype = ".png";
-            }
-            if (File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI\theme.json"))
-            {
-                checkBox1.Enabled = true;
-            }
-            else
-            {
-                checkBox1.Enabled = false;
-            }
-            checkBox1.Checked = Properties.Settings.Default.HiDPI;
-            if (themeinfo.GetValue("Changes icons?").ToString() == "true")
-            {
-                Icon = new Icon(themepath + @"\settings.ico");
-            }
-            if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
-            {
-                Console.WriteLine("Using embedded theme. Skipping initialisation");
-            }
-            else
-            {
-                foreach (TabControl control in this.Controls.OfType<TabControl>())
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                            Properties.Settings.Default.Theme + @"\Hi-DPI";
+                if (File.Exists(themepath + @"\theme.json"))
                 {
-                    foreach (TabPage item in control.TabPages.OfType<TabPage>())
+
+                }
+                else
+                {
+                    themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                                Properties.Settings.Default.Theme;
+                    checkBox1.Checked = false;
+                }
+
+            }
+            else
+            {
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                            Properties.Settings.Default.Theme;
+
+                JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                string imgtype;
+                try
+                {
+                    imgtype = themeinfo.GetValue("Image Type").ToString();
+                }
+                catch
+                {
+                    imgtype = ".png";
+                }
+                if (
+                    File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                                Properties.Settings.Default.Theme + @"\Hi-DPI\theme.json"))
+                {
+                    checkBox1.Enabled = true;
+                }
+                else
+                {
+                    checkBox1.Enabled = false;
+                }
+                checkBox1.Checked = Properties.Settings.Default.HiDPI;
+                if (themeinfo.GetValue("Changes icons?").ToString() == "true")
+                {
+                    Icon = new Icon(themepath + @"\settings.ico");
+                }
+                if (themeinfo.GetValue("Theme Name").ToString() == "embedded")
+                {
+                    Console.WriteLine("Using embedded theme. Skipping initialisation");
+                }
+                else
+                {
+                    foreach (TabControl control in this.Controls.OfType<TabControl>())
                     {
-                        try
+                        foreach (TabPage item in control.TabPages.OfType<TabPage>())
                         {
-                            ico = Image.FromFile(themepath + @"\" + item.Text + imgtype);
-                            imageList1.Images.Add(item.Text, ico);
-                            if (themeinfo.GetValue("Image Type").ToString() == ".bmp")
+                            try
                             {
-                                imageList1.TransparentColor = Color.FromName(themeinfo.GetValue("BMP Back Colour").ToString());
+                                ico = Image.FromFile(themepath + @"\" + item.Text + imgtype);
+                                imageList1.Images.Add(item.Text, ico);
+                                if (themeinfo.GetValue("Image Type").ToString() == ".bmp")
+                                {
+                                    imageList1.TransparentColor =
+                                        Color.FromName(themeinfo.GetValue("BMP Back Colour").ToString());
+                                }
                             }
+                            catch
+                            {
+                            }
+                            item.ImageIndex = no;
+                            no = no + 1;
                         }
-                        catch { }
-                        item.ImageIndex = no;
-                        no = no + 1;
                     }
                 }
-            } 
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

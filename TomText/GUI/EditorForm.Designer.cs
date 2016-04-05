@@ -93,6 +93,7 @@ namespace TomText
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.websiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formatStrip = new System.Windows.Forms.ToolStrip();
@@ -109,12 +110,13 @@ namespace TomText
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.editorBox = new System.Windows.Forms.RichTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.container.ContentPanel.SuspendLayout();
             this.container.RightToolStripPanel.SuspendLayout();
             this.container.TopToolStripPanel.SuspendLayout();
@@ -535,7 +537,6 @@ namespace TomText
             this.toolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator12
             // 
@@ -553,6 +554,7 @@ namespace TomText
             this.helpDropDownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.helpDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.helpToolStripMenuItem,
+            this.websiteToolStripMenuItem,
             this.toolStripSeparator7,
             this.aboutToolStripMenuItem});
             resources.ApplyResources(this.helpDropDownButton, "helpDropDownButton");
@@ -562,6 +564,12 @@ namespace TomText
             // 
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            // 
+            // websiteToolStripMenuItem
+            // 
+            this.websiteToolStripMenuItem.Name = "websiteToolStripMenuItem";
+            resources.ApplyResources(this.websiteToolStripMenuItem, "websiteToolStripMenuItem");
+            this.websiteToolStripMenuItem.Click += new System.EventHandler(this.websiteToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -699,6 +707,7 @@ namespace TomText
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.button2);
@@ -706,11 +715,6 @@ namespace TomText
             this.panel1.Controls.Add(this.trackBar1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // progressBar1
             // 
@@ -761,18 +765,32 @@ namespace TomText
             this.editorBox.SelectionChanged += new System.EventHandler(this.editorBox_SelectionChanged);
             this.editorBox.TextChanged += new System.EventHandler(this.editorBox_TextChanged);
             // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label2.Font = global::TomText.Properties.Settings.Default.UIFont;
+            this.label2.Name = "label2";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.label1.Font = global::TomText.Properties.Settings.Default.UIFont;
+            this.label1.Name = "label1";
+            // 
             // EditorForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.container);
             this.Controls.Add(this.panel1);
             this.Name = "EditorForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditorForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditorForm_FormClosed);
             this.Load += new System.EventHandler(this.EditorForm_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.EditorForm_DragDrop);
             this.container.ContentPanel.ResumeLayout(false);
             this.container.RightToolStripPanel.ResumeLayout(false);
             this.container.RightToolStripPanel.PerformLayout();
@@ -880,6 +898,8 @@ namespace TomText
         private ToolStripMenuItem pasteToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripMenuItem selectAllToolStripMenuItem1;
+        private ToolStripMenuItem websiteToolStripMenuItem;
+        private Label label2;
     }
 }
 

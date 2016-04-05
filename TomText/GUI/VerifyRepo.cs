@@ -25,8 +25,8 @@ namespace TomText.GUI
             JObject update = JObject.Parse(File.ReadAllText(Path.GetTempPath() + "/repo.json"));
             textBox1.Text = update.GetValue("Repo Name").ToString();
             richTextBox1.Text = update.GetValue("Repo Description").ToString();
-            dynamic obj = JsonConvert.DeserializeObject(update.GetValue("Repo versions").ToString());
-            MessageBox.Show(obj.ToString());
+            //dynamic obj = JsonConvert.DeserializeObject(update.GetValue("Repo versions").ToString());
+           //MessageBox.Show(obj.ToString());
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

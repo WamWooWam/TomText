@@ -12,7 +12,7 @@ namespace TomText.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -109,54 +109,6 @@ namespace TomText.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool DevConsole {
-            get {
-                return ((bool)(this["DevConsole"]));
-            }
-            set {
-                this["DevConsole"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.5")]
-        public double UIScaling {
-            get {
-                return ((double)(this["UIScaling"]));
-            }
-            set {
-                this["UIScaling"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ThemeVariant {
-            get {
-                return ((string)(this["ThemeVariant"]));
-            }
-            set {
-                this["ThemeVariant"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UsingVariant {
-            get {
-                return ((bool)(this["UsingVariant"]));
-            }
-            set {
-                this["UsingVariant"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool HiDPI {
             get {
@@ -176,6 +128,46 @@ namespace TomText.Properties {
             }
             set {
                 this["CheckForUpdates"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" />")]
+        public global::System.Collections.Specialized.StringCollection FontCache {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["FontCache"]));
+            }
+            set {
+                this["FontCache"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("All TomText Editable Formats (*.txt; *.rtf, *.rtfc, *.rtfe)|*.txt; *.rtf; *.ldf; " +
+            "*.tdf; *.rtfc; *.rtfe|Rich Text Format (*.rtf)|*.rtf*; .rtfc; *.rtfe|Text Docume" +
+            "nt (*.txt)|*.txt")]
+        public string OpenableFileTypes {
+            get {
+                return ((string)(this["OpenableFileTypes"]));
+            }
+            set {
+                this["OpenableFileTypes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Rich Text Format (*.rtf)|*.rtf|Compressed Rich Text Format (*.rtfc)|*.rtfc|Encryp" +
+            "ted Rich Text Format (*.rtfe)|*.rtfe|Text Document (*.txt)|*.txt")]
+        public string SaveableFileTypes {
+            get {
+                return ((string)(this["SaveableFileTypes"]));
+            }
+            set {
+                this["SaveableFileTypes"] = value;
             }
         }
     }

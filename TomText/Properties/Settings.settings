@@ -23,23 +23,21 @@
     <Setting Name="SpellLang" Type="System.String" Scope="User">
       <Value Profile="(Default)">English (UK)</Value>
     </Setting>
-    <Setting Name="DevConsole" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="UIScaling" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">1.5</Value>
-    </Setting>
-    <Setting Name="ThemeVariant" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="UsingVariant" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="HiDPI" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CheckForUpdates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FontCache" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
+    <Setting Name="OpenableFileTypes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">All TomText Editable Formats (*.txt; *.rtf, *.rtfc, *.rtfe)|*.txt; *.rtf; *.ldf; *.tdf; *.rtfc; *.rtfe|Rich Text Format (*.rtf)|*.rtf*; .rtfc; *.rtfe|Text Document (*.txt)|*.txt</Value>
+    </Setting>
+    <Setting Name="SaveableFileTypes" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rich Text Format (*.rtf)|*.rtf|Compressed Rich Text Format (*.rtfc)|*.rtfc|Encrypted Rich Text Format (*.rtfe)|*.rtfe|Text Document (*.txt)|*.txt</Value>
     </Setting>
   </Settings>
 </SettingsFile>

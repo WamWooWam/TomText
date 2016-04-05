@@ -56,3 +56,23 @@ C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\GenerateResource.writ
 C:\Documents and Settings\Thomas\Desktop\TomText\obj\Debug\en-GB\TomText.resources.dll
 C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.ReqURL.resources
 C:\Users\Thomas\Desktop\TomText\obj\Debug\TomText.GUI.VerifyRepo.resources
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\TomText.exe.config
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.exe
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.pdb
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.AboutTomText.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.DevConsole.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.EditorForm.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.ReqPswd.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.ReqURL.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.Settings.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.VerifyRepo.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.Properties.Resources.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.EditorForm.en-GB.resources
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.csproj.GenerateResource.Cache
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\TomText.exe
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\TomText.pdb
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\en-GB\TomText.resources.dll
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Ionic.Zip.pdb
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Ionic.Zip.xml
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\en-GB\TomText.resources.dll
