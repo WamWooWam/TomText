@@ -35,11 +35,21 @@ namespace TomText.GUI
             {
                 themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
             }
-            JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+            JObject themeinfo;
+            if (Properties.Settings.Default.Theme == "embedded")
+            {
+                themeinfo = JObject.Parse(Properties.Resources.embedded);
+            }
+            else
+            {
+                themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+            }
             checkBox1.Checked = Properties.Settings.Default.HiDPI;
             richTextBox1.Text = themeinfo.GetValue("Theme Description").ToString() + "\r\n" + themeinfo.GetValue("Theme Licence").ToString();
             textBox1.Text = Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.UIFont.Style.ToString();
             directoryTextBox.Text = themepath;
+            JObject embedded = JObject.Parse(Properties.Resources.embedded);
+            comboBox1.Items.Add(embedded.GetValue("Theme Name").ToString());
             foreach (string dir in Directory.GetDirectories(Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\"))
             {
                 if (File.Exists(dir + @"\theme.json"))
@@ -62,18 +72,29 @@ namespace TomText.GUI
             string themepath;
             if (Properties.Settings.Default.HiDPI)
             {
-                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme + @"\Hi-DPI";
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                            Properties.Settings.Default.Theme + @"\Hi-DPI";
             }
             else
             {
-                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
+                themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
+                            Properties.Settings.Default.Theme;
             }
-            JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
-            Properties.Settings.Default.Theme = comboBox1.Text;
-            Properties.Settings.Default.Save();
-            richTextBox1.Text = themeinfo.GetValue("Theme Description").ToString() + "\r\n" + themeinfo.GetValue("Theme Licence").ToString();
-            directoryTextBox.Text = themepath;
-            RefreshGUI();
+            JObject themeinfo;
+                if (Properties.Settings.Default.Theme == "embedded")
+                {
+                    themeinfo = JObject.Parse(Properties.Resources.embedded);
+                }
+                else
+                {
+                    themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                }
+                Properties.Settings.Default.Theme = comboBox1.Text;
+                Properties.Settings.Default.Save();
+                richTextBox1.Text = themeinfo.GetValue("Theme Description").ToString() + "\r\n" +
+                                    themeinfo.GetValue("Theme Licence").ToString();
+                directoryTextBox.Text = themepath;
+                RefreshGUI();
         }
 
         private void Settings_FormClosed(object sender, FormClosedEventArgs e)
@@ -136,8 +157,15 @@ namespace TomText.GUI
             {
                 themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" +
                             Properties.Settings.Default.Theme;
-
-                JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                JObject themeinfo;
+                if (Properties.Settings.Default.Theme == "embedded")
+                {
+                    themeinfo = JObject.Parse(Properties.Resources.embedded);
+                }
+                else
+                {
+                    themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+                }
                 string imgtype;
                 try
                 {
@@ -224,7 +252,15 @@ namespace TomText.GUI
             {
                 themepath = Path.GetDirectoryName(Application.ExecutablePath) + @"\Resources\Themes\" + Properties.Settings.Default.Theme;
             }
-            JObject themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+            JObject themeinfo;
+            if (Properties.Settings.Default.Theme == "embedded")
+            {
+                themeinfo = JObject.Parse(Properties.Resources.embedded);
+            }
+            else
+            {
+                themeinfo = JObject.Parse(File.ReadAllText(themepath + @"\theme.json"));
+            }
             checkBox1.Checked = Properties.Settings.Default.HiDPI;
             richTextBox1.Text = themeinfo.GetValue("Theme Description").ToString() + "\r\n" + themeinfo.GetValue("Theme Licence").ToString();
             textBox1.Text = Properties.Settings.Default.UIFont.FontFamily.Name + ", " + Properties.Settings.Default.UIFont.SizeInPoints.ToString() + "pt, " + Properties.Settings.Default.UIFont.Style.ToString();

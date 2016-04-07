@@ -71,12 +71,22 @@ namespace TomText.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to {
+        ///  	&quot;DPI Scale&quot;: &quot;100&quot;,
+        ///  	&quot;Image Size&quot;: &quot;16&quot;,
+        ///  	&quot;Theme Description&quot;: &quot;Embedded theme using VS stock icons. Skips icon initialisation.&quot;,
+        ///  	&quot;Theme Licence&quot;: &quot;&quot;,
+        ///  	&quot;Theme Name&quot;: &quot;embedded&quot;,
+        ///  	&quot;Theme Style&quot;: &quot;0&quot;,
+        ///  	&quot;Use config.json&quot;: &quot;false&quot;,
+        ///  	&quot;Uses Embedded&quot;: &quot;true&quot;,
+        ///  	&quot;Changes icons?&quot; : &quot;false&quot;,
+        ///	  &quot;Image Type&quot; : &quot;N/A&quot;
+        ///}.
         /// </summary>
-        internal static byte[] theme {
+        internal static string embedded {
             get {
-                object obj = ResourceManager.GetObject("theme", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("embedded", resourceCulture);
             }
         }
         

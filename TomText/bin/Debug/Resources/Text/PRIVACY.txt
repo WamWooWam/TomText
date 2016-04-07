@@ -1,0 +1,11 @@
+TomText values your privacy! As such, it does NOT collect OR transmit ANY personal or identifiable information
+Even so, it does collect and store the following information in debug logs:
+	Current Version
+	OS Version
+	Installed .Net Framework Version
+	Installed and avalable memory
+	Launch Time
+	App Setttings (Including Language and Theme)
+	Fonts installed on system
+	Loaded extensions
+You can choose to send these logs to us if an error is encountered but nothing is transmitted without you SPECIFICLY PRESSING a send button.
