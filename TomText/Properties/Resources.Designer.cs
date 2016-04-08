@@ -93,6 +93,16 @@ namespace TomText.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fade {
+            get {
+                object obj = ResourceManager.GetObject("fade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WordWrap {
             get {
                 object obj = ResourceManager.GetObject("WordWrap", resourceCulture);

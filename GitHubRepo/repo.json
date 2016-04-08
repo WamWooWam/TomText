@@ -1,0 +1,8 @@
+{
+	"Repo name" : "TomText Stable",
+	"Repo description" : "The official TomText Stable repo. Contains only stable releases. This is the recomended repo",
+	"Repo latest" : "2.0.0.1",
+	"Repo versions" : [{"version":"1.0.0.0", "type" : "0"},
+			   {"version":"2.0.0.0", "type" : "0"},
+			   {"version":"2.0.0.1", "type" : "1"}]
+}

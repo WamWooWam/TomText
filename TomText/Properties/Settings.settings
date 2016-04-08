@@ -39,5 +39,15 @@
     <Setting Name="SaveableFileTypes" Type="System.String" Scope="User">
       <Value Profile="(Default)">Rich Text Format (*.rtf)|*.rtf|Compressed Rich Text Format (*.rtfc)|*.rtfc|Encrypted Rich Text Format (*.rtfe)|*.rtfe|Text Document (*.txt)|*.txt</Value>
     </Setting>
+    <Setting Name="UpdateRepos" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;http://louisoft01.com/apphost/tomtext/&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="CustomUpdateRepos" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -58,6 +58,7 @@ namespace TomText
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.mainMenuStrip = new System.Windows.Forms.ToolStrip();
             this.fileDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -112,7 +113,6 @@ namespace TomText
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.wordWrapToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button2 = new System.Windows.Forms.Button();
@@ -242,7 +242,8 @@ namespace TomText
             this.toolStripSeparator1,
             this.helpToolStripButton,
             this.toolStripSeparator13,
-            this.exitToolStripButton});
+            this.exitToolStripButton,
+            this.toolStripButton1});
             this.easyAccessStrip.Name = "easyAccessStrip";
             // 
             // newToolStripButton
@@ -329,6 +330,7 @@ namespace TomText
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             resources.ApplyResources(this.helpToolStripButton, "helpToolStripButton");
             this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Click += new System.EventHandler(this.Help);
             // 
             // toolStripSeparator13
             // 
@@ -341,6 +343,13 @@ namespace TomText
             resources.ApplyResources(this.exitToolStripButton, "exitToolStripButton");
             this.exitToolStripButton.Name = "exitToolStripButton";
             this.exitToolStripButton.Click += new System.EventHandler(this.Exit);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // mainMenuStrip
             // 
@@ -739,7 +748,6 @@ namespace TomText
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.button2);
@@ -747,13 +755,6 @@ namespace TomText
             this.panel1.Controls.Add(this.trackBar1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::TomText.Properties.Settings.Default, "UIFont", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label2.Font = global::TomText.Properties.Settings.Default.UIFont;
-            this.label2.Name = "label2";
             // 
             // label1
             // 
@@ -916,8 +917,8 @@ namespace TomText
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripMenuItem selectAllToolStripMenuItem1;
         private ToolStripMenuItem websiteToolStripMenuItem;
-        private Label label2;
         private ToolStripDropDownButton pluginsToolStripDropDownButton;
+        private ToolStripButton toolStripButton1;
     }
 }
 

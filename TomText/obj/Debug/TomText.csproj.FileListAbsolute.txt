@@ -73,8 +73,6 @@ C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.csproj.GenerateResou
 C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\TomText.exe
 C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\TomText.pdb
 C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\en-GB\TomText.resources.dll
-C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Ionic.Zip.pdb
-C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Ionic.Zip.xml
 C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\en-GB\TomText.resources.dll
 E:\Documents\TomText\TomText\bin\Debug\TomText.exe.config
 E:\Documents\TomText\TomText\obj\Debug\TomText.exe
@@ -119,3 +117,7 @@ C:\Users\VBox\Desktop\TomText\TomText\obj\Debug\TomText.EditorForm.en-GB.resourc
 C:\Users\VBox\Desktop\TomText\TomText\obj\Debug\GenerateResource.read.1.tlog
 C:\Users\VBox\Desktop\TomText\TomText\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\VBox\Desktop\TomText\TomText\obj\Debug\en-GB\TomText.resources.dll
+C:\Users\Thomas\Documents\TomText\TomText\obj\Debug\TomText.GUI.Help.resources
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Ionic.Zip.dll
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Geckofx-Core.pdb
+C:\Users\Thomas\Documents\TomText\TomText\bin\Debug\Geckofx-Winforms.pdb

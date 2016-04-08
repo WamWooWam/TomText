@@ -7,6 +7,6 @@
   	"Theme Style": "0",
   	"Use config.json": "false",
   	"Uses Embedded": "false",
-  	"Changes icons?" : "true",
+  	"Changes icons?" : "false",
 	"Image Type" : ".png"
 }
